@@ -1,5 +1,4 @@
-
-package project;
+package oldversions;
 import dblibrary.project.csci230.*;
 import java.util.*;
 
@@ -30,7 +29,7 @@ public class DBController {
       ArrayList<University> listUniversities = new ArrayList<University>();
       for(int i=0;i< arrayUni.length;i++)
       {
-    	  listUniversities.add(new University(arrayUni[i][0],arrayUni[i][1],arrayUni[i][2],arrayUni[i][3], Integer.parseInt(arrayUni[i][4]),Double.parseDouble(arrayUni[i][5]),Integer.parseInt(arrayUni[i][6]),Integer.parseInt(arrayUni[i][6]),Integer.parseInt(arrayUni[i][7]),Integer.parseInt(arrayUni[i][8]), Integer.parseInt(arrayUni[i][9]),Double.parseDouble(arrayUni[i][10]),Double.parseDouble(arrayUni[i][11]),Integer.parseInt(arrayUni[i][12]),Integer.parseInt(arrayUni[i][13]), Integer.parseInt(arrayUni[i][14]), arrayUni[i][15]));
+    	  listUniversities.add(new University(arrayUni[i][0],arrayUni[i][1],arrayUni[i][2],arrayUni[i][3], Integer.parseInt(arrayUni[i][4]),Double.parseDouble(arrayUni[i][5]),Integer.parseInt(arrayUni[i][6]),Integer.parseInt(arrayUni[i][6]),Integer.parseInt(arrayUni[i][7]),Integer.parseInt(arrayUni[i][8]), Integer.parseInt(arrayUni[i][9]),Double.parseDouble(arrayUni[i][10]),Double.parseDouble(arrayUni[i][11]),Integer.parseInt(arrayUni[i][12]),Integer.parseInt(arrayUni[i][13]), Integer.parseInt(arrayUni[i][14]), arrayUni[i][15], null));
     		
       }
      return listUniversities;
@@ -48,21 +47,21 @@ public class DBController {
 		return value;  
   }
   
-  public  ArrayList<User> getUsers()
+  public  void getUsers(User user)
   { 
 	  String arrayUsers[][]= univDBlib.user_getUsers();
 	  ArrayList<User> listUser= new ArrayList<User>();
       for(int i=0;i< arrayUsers.length;i++)
       {
-    	  listUser.add(new User(arrayUsers[i][0],arrayUsers[i][1],arrayUsers[i][2],arrayUsers[i][3],arrayUsers[i][4].charAt(0),arrayUsers[i][5].charAt(0)));
+    	  listUser.add(new User(arrayUsers[i][0],arrayUsers[i][1],arrayUsers[i][2],arrayUsers[i][3],arrayUsers[i][4].charAt(0),arrayUsers[i][5].charAt(0));
+    	  java.lang.String firstName, java.lang.String lastName, java.lang.String username, java.lang.String password, char type
       }
-     return listUser;
-		  
+     return listUniversities;
   }
-
-public int addUser(User user)
-{
-	int value = univDBlib.user_addUser(user.getFirstName(), user.getLastName(),user.getUsername(), user.getPassword(), user.getType());
-	return value;
-} 
-}   
+	
+      
+	      
+	  
+  }
+}
+      

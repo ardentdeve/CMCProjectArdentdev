@@ -7,18 +7,21 @@
  *
  */
 
-package project;
+package oldversions;
 
 import java.util.ArrayList;
 
 public class Student extends User {
-	
-	
 
 	
 	private ArrayList<University>savedSchools;
-	
-	
+	/**
+	 * @return the savedSchools
+	 */
+	public ArrayList<University> getSavedSchools() {
+		return savedSchools;
+	}
+
 	/**
 	 * @param password
 	 * @param username
@@ -31,15 +34,12 @@ public class Student extends User {
 		savedSchools = new ArrayList<University>();	
 	}
 	
-	
 	/**
-	 * @return the savedSchools
+	 * @param savedSchools the savedSchools to set
 	 */
-	public ArrayList<University> getSavedSchools() {
+	public void getSavedSchools1() {
 		return savedSchools;
 	}
-
-
-		
+	
 
 }

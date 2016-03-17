@@ -2,25 +2,27 @@ package project;
 
 import java.util.*;
 
+import dblibrary.project.csci230.UniversityDBLibrary;
+
 public class UniversityHome {
-	private List<University> universities;
+
+	private ArrayList<University> universities;
 	private DBController dbl;
 	
-	public UniversityHome(){
-		universities = new ArrayList<University>();
+	public UniversityHome(String data, String username, String password){
+		dbl= new DBController(data,username,password);
 	}
-	
 	public void addUniversityToList(University u){
-		universities.add(u);
+		dbl.addUniversity(u);
 	}
 	
 	
-	
-	public void  getUniversities(){
+	/** 
+	 * Get all the universities in the database
+	 */
+	public void  getUniversities(){ 
 		universities = dbl.getUniversities();
-		ArrayList<University> uni =new ArrayList<University>(); 
-		uni = dbl.getUniversities();
-		 for(University u : uni)
+		 for(University u : universities)
 		 {
 	     System.out.println(u);
 	}

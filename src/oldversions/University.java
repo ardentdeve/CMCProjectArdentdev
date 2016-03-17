@@ -1,4 +1,4 @@
-package project;
+package oldversions;
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ public class University {
 	 */
 	public University(String name, String state, String location, String control ,int numberStudents, double pctFemale,
 			int satVerbal, int satMath, int expenses, double pctFinancialAid, int numberOfApplicants,
-			double pctAdmitted, double pctEnrolled, int academicScale, int socialScale, int qualityOfLifeScale, String emphases) {
+			double pctAdmitted, double pctEnrolled, int academicScale, int socialScale, int qualityOfLifeScale, String emphases, List<University> similarUniversities) {
 		super();
 		this.name = name;
 		this.state = state;
@@ -66,6 +66,7 @@ public class University {
 		this.socialScale = socialScale;
 		this.qualityOfLifeScale = qualityOfLifeScale;
 		this.emphases = emphases;
+		this.similarUniversities = similarUniversities;
 	}
 	
 	/**
