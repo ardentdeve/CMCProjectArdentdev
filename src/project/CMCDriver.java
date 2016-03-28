@@ -12,29 +12,39 @@ public class CMCDriver {
 	
 	
 	 public static void main(String[] args) {
-			UniversityHome dbld = new UniversityHome(args[0],args[1], args[2]);
-			StudentHome sh = new StudentHome(args[0],args[1], args[2]);
-				DBController dbl = new DBController(args[0],args[1], args[2]);
-				HashMap<String, Student> students = sh.getStudents();
-				for (Map.Entry<String, Student> student : students.entrySet()) {
-					String username=  student.getKey();
-				      Student s = student.getValue();
-				      System.out.println(s.getUsername());
-				}
+			
+			     StudentUI studentUI= new StudentUI(args[0],args[1], args[2]);
+			      AdminUI   adminUI = new AdminUI(args[0],args[1], args[2]);
+			   studentUI.logOn("luser", "user");
+			   studentUI.getStudentInfo();
+				 studentUI.getSavedUniversity();
+				 studentUI.saveUni("BOSTON COLLEGE");
+				 studentUI.removeUniversity("BUTLER");
+				 studentUI.getSavedUniversity();
+				 studentUI.editStudent("Imani", "Juelz", "user1234");
+				 studentUI.getStudentInfo();
+				 studentUI.logOff();
+				 
+					  adminUI.logOn("Rahal", "Imad");
+					     Student s = new Student("Mimi", "Kardashian", "MimiLuv", "mi1234", 'u', 'Y');
+					     adminUI.addStudent(s);
+					     Student editS = new Student("MimiN", "Kardashian", "MimiLuv", "mi1234", 'u', 'Y');
+					     adminUI.editStudent(editS);
+					     adminUI.deactivateUser("Rahal");
+					     adminUI.getStudents();
+					     adminUI.getAdmins();
+					     University tech = new University("Kanye West TECHNOLOGY ","Kanye City","BIG-CITY","PRIVATE",5000,50.0,800,800,800,22000.0,50,1000.5,25.0,70,4,4,"4");
+						 adminUI.addUniversity(tech);
+					     adminUI.logOff();
 				
-				System.out.println("Demo university_addUniversity(a a x x 1 1 1 1 1 1 1 1 1 1 1 1");
-				dbld.addUniversityToList(new University("ZIMBA","south michigan","x","x",1,1,1,1,1,1,1,1,1,1,1,1,"1"));
-				System.out.println("Get all users in the database");
-				dbld.getUniversities();
-				System.out.println("Demo user_addUser(Ashley  AshleyUser AshleyPass a N'");
-		        User user = new User("Ashley", "Nneji", "AshleyUser", "AshleyPass", 'a', 'N');
-				dbl.addUser(user);
-				System.out.println("Get all the users with the new users included");
-				ArrayList<User > us = dbl.getUsers();
-				 for(User u : us) 
-				 {
-			     System.out.println(u);
-			}
+			
+		     
+	
+
+				
+				 
+	 
+		
 				 
 				 
 		          

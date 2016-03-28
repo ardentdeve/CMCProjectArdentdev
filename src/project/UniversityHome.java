@@ -11,6 +11,7 @@ public class UniversityHome {
 	
 	public UniversityHome(String data, String username, String password){
 		dbl= new DBController(data,username,password);
+	
 	}
 	public void addUniversityToList(University u){
 		dbl.addUniversity(u);
@@ -24,7 +25,7 @@ public class UniversityHome {
 		universities = dbl.getUniversities();
 		 for(University u : universities)
 		 {
-	     System.out.println(u);
+	         System.out.println(u);
 	}
 	}
 	
