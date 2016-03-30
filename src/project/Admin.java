@@ -14,6 +14,7 @@ public class Admin extends User {
 		super();
 		
 	}
+	//I love this
 	public Admin(String firstName, String lastName, String username, String password, char type) {
 		super(firstName,lastName,username,password,type);
 		
