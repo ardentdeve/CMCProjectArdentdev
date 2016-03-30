@@ -1,6 +1,6 @@
 /*
  * File: Admin.java
- */ 
+ */
 package project;
 
 import java.util.ArrayList;
