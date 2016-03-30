@@ -91,27 +91,33 @@ public class StudentHome {
 		return dbl.saveSchool(student, school);
 	}
 	
-	public void getSavedUniversity(String username) 
+	public void getSavedUniversity()
 	
 	{
 		
-		ArrayList<ArrayList<String>> savedSchool= dbl.getSavedSchool();
-	    for(ArrayList<String> i: savedSchool)
-			   {
-	               if(i.contains(username))
-	               {
-				   System.out.println(i);
-			   }
-				 
-			   }
+		ArrayList<University> savedSchool= dbl.getSavedSchool(stu.getUsername());
+	    stu.setSavedUni(savedSchool);
+	    ArrayList<University> uniLists = stu.getSavedUniversity();
+	    for(University u: savedSchool)
+	    {
+	    	System.out.println(u.getName());
+	    }
 	}
 		
 	
 	
 	
-	public void editStudent(Student student) {
-		dbl.editStudent(student);
+	public void editProfile(String firstname, String lastname, String password) {
+	   stu = new Student(firstname,lastname,stu.getUsername(), password,stu.getType(),stu.getStatus());
+	   boolean value = dbl.editStudent(stu);
+	   if(value)
+	   {
+		   System.out.println("Edit profile was successful");
+	   }
 	}
+	   
+	   
+		
 	           
 	public boolean isUserStudent(String username){
 		return dbl.isUserStudent(username);

@@ -52,7 +52,7 @@ public class StudentUI {
 	{
 		try
 		{
-	   studentH.getSavedUniversity(student.getUsername());
+	   studentH.getSavedUniversity();
 	}
 		catch(NullPointerException ex)
 		{
@@ -78,28 +78,22 @@ public class StudentUI {
 	}
 
 
-	public void editStudent(String firstname, String lastname, String password)
+	public void editProfile(String firstname, String lastname, String password)
 	{
-		if(!(student==null))
-		{
-		student.setFirstName(firstname);
-		student.setLastName(lastname);
-		student.setPassword(password);
-		System.out.println("edit successful");
-		}
-		else
-		{
-			System.out.println("edit unsuccessful");
-		}
+		studentH.editProfile(firstname,lastname,password);
 	}
 	
 	public void getStudentInfo()
 	{
+	 if(!(student==null))
+	 {
       boolean value=  studentH.isUserStudent(student.getUsername());
       if(value== true)
       {
     	  System.out.println(student.toString());
       }
+	 }
+	 
 	}
 		
 	/**

@@ -14,7 +14,7 @@ import java.util.TreeMap;
 
 public class Student extends User {
 	
-	private TreeMap<String, ArrayList<String>> savedSchools;
+	private ArrayList<University> savedSchools;
 	
 	
 	/**
@@ -26,13 +26,14 @@ public class Student extends User {
 	 */
 	public Student(String firstName, String lastName, String username, String password, char type, char status) {
 		super(firstName,lastName,username,password,type,status);
-		savedSchools = new TreeMap<String,ArrayList<String>>();
+		savedSchools = new ArrayList<University>();
 	}
 	
 	public Student(String firstName, String lastName, String username, String password, char type) {
 		super(firstName,lastName,username,password,type);
-		savedSchools = new TreeMap<String, ArrayList<String>>();
+		savedSchools = new ArrayList<University>();
 	}
+
 	
 	public Student()
 	{
@@ -40,6 +41,15 @@ public class Student extends User {
 		
 	}
 	
+	public ArrayList<University> getSavedUniversity()
+	{
+	 return savedSchools;
+	}
+	
+	 public void setSavedUni(ArrayList<University>uni)
+	{
+	 savedSchools =uni;
+	}
 	
 
 	

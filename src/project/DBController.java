@@ -94,23 +94,25 @@ public class DBController {
   }
  
   
-  public ArrayList<ArrayList<String>> getSavedSchool()
+  public ArrayList<University> getSavedSchool(String username)
   {
-	  String[][] arrayUni= univDBlib.user_getUsernamesWithSavedSchools();
-	  ArrayList<ArrayList<String>> schoolLists = new ArrayList<ArrayList<String>>();
-	  for (int i = 0; i < arrayUni.length; ++i) {
-		  ArrayList<String> list = new ArrayList<String>();
-	      schoolLists.add(list);
-	      for (int j = 0; j < arrayUni[0].length; ++j) {
-	    	
-	    	  {
-	               list.add(arrayUni[i][j]);
-	      }
-	  
-	      }
+  String[][] arrayUni= univDBlib.user_getUsernamesWithSavedSchools();
+  ArrayList<University> savedUni= new ArrayList<University>();
+  for (int i = 0; i < arrayUni.length; ++i) {
+	  if(arrayUni[i][0].equals(username))
+	  {
+          String univName = arrayUni[i][1];
+          for(University u:this.getUniversities())
+          {
+        	  if(u.getName().equals(univName))
+        	  {
+        		savedUni.add(u) ;
+        		
+        	  }
+          }
 	  }
-  
-	return schoolLists;
+  }
+          return savedUni;
   }
   
   public boolean removeSchool(String username,String school)

@@ -93,7 +93,7 @@ public class AdminHome {
 	  {
 		  Admin adminS = findAdmin(username);
 		  adminS = new Admin(adminS.getFirstName(),adminS.getLastName(),adminS.getUsername(), adminS.getPassword(),adminS.getType(),'N');
-		 
+		  value = this.editAdmin(adminS);
 		  System.out.println("The Admin with this username : " + username + " - has been deactivated"); 
 	  }
 	  else if(this.isUserStudent(username)== true)
