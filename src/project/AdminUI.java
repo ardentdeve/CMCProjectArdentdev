@@ -22,7 +22,7 @@ public class AdminUI {
 	private ArrayList<Admin>allAdmins;
 	/** Reference to UniversityHome object */
 	private UniversityHome uniH;
-	
+
 	/**
 	 * Constructor.
 	 * @param n name to set
@@ -35,8 +35,8 @@ public class AdminUI {
 		uniH= new UniversityHome(n,us,p);
 		allAdmins = new ArrayList<Admin>();
 	}
-	
-	
+
+
 	/**
 	 * method to logOn as an admin
 	 * @param n name of Admin
@@ -54,7 +54,7 @@ public class AdminUI {
 			System.out.println("log on successful");
 		}
 	}
-	
+
 	/**
 	 * method to logOff as an Admin
 	 */
@@ -62,7 +62,7 @@ public class AdminUI {
 	{
 		adminH.logoff();
 	}
-	
+
 	/**
 	 * method for an admin to add a student to StudentHome
 	 * @param s the student that is being added
@@ -71,7 +71,7 @@ public class AdminUI {
 	{
 		adminH.addStudent(s);
 	}
-	
+
 	/**
 	 * method for an admin to add another admin to adminHome
 	 * @param a the admin that is going to be added
@@ -87,7 +87,7 @@ public class AdminUI {
 	 * @param u the Student to deactivate
 	 */
 	public void deactivateUser(String username){
-	   adminH.DeactivateUser(username);
+		adminH.DeactivateUser(username);
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class AdminUI {
 	 */
 	public boolean editStudent(Student s)
 	{
-	   return adminH.editStudent(s);
+		return adminH.editStudent(s);
 	}
 	/**
 	 * Edits a specific admin in the adminHome
@@ -106,9 +106,9 @@ public class AdminUI {
 	 */
 	public boolean editAdmin(Admin a)
 	{
-	   return adminH.editAdmin(a);
+		return adminH.editAdmin(a);
 	}
-	
+
 	/**
 	 * Calls studentHome to get all Students
 	 */
@@ -116,7 +116,7 @@ public class AdminUI {
 	{
 		adminH.getStudents();
 	}
-	
+
 	/**
 	 * Calls adminHome to get all Admins
 	 */
@@ -124,7 +124,7 @@ public class AdminUI {
 	{
 		adminH.getAdmins();
 	}
-	
+
 	/**
 	 * Adds an University to the universityHome
 	 * @param u University to be added
@@ -133,13 +133,13 @@ public class AdminUI {
 	{
 		uniH.addUniversityToList(u);
 	}
-	
+
 	/**
 	 * Calls universityHome to get all Universities
 	 */
 	public void getUniversities(){
-	      uniH.getUniversities();
+		uniH.getUniversities();
 	}
 }
 
-	
+
