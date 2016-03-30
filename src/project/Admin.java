@@ -14,7 +14,7 @@ import java.util.TreeMap;
  */
 
 public class Admin extends User {
-	
+
 	/**
 	 * Constructor.
 	 * 
@@ -29,15 +29,15 @@ public class Admin extends User {
 	public Admin(String pw, String un, String firstName, String lastName, char type, char status) {
 		super(pw, un, firstName, lastName, type, status);
 	}
-	
+
 	/**
 	 * Constructor.
 	 */
-	
+
 	public Admin()
 	{
 		super();
-		
+
 	}
 	/**
 	 * Constructor.
@@ -50,19 +50,19 @@ public class Admin extends User {
 	 */
 	public Admin(String firstName, String lastName, String username, String password, char type) {
 		super(firstName,lastName,username,password,type);
-		
+
 	}
-	
+
 	/**
 	 * Returns a String of the Admin information
 	 * 
 	 * @return firstname, lastname, username, password, type, and status of the Admin.
 	 */
-	
+
 	@Override
 	public String toString() {
 		return "Admin [getFistName()=" + getFirstName() + ", getLastName()=" + getLastName() + ", getUsername()="
 				+ getUsername() + ", getPassword()=" + getPassword() + ", getType()=" + getType() + ", getStatus()="
 				+ getStatus() + "]";
-		}
+	}
 }
