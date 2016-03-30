@@ -1,8 +1,5 @@
-
-
-/**
- * @author Ashley Nneji
- * The student user interface class 
+/*
+ * File: StudentUI.java
  */
 
 package project;
@@ -10,30 +7,40 @@ package project;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
+
+/**
+ * User Interface for the Student 
+ * 
+ * @author Ardent Developers
+ *
+ */
+
 public class StudentUI {
-	
+	/** Reference to studentHome object */
 	private StudentHome studentH;
+	/** Reference to student object */
 	private Student student;
+	/** An arrayList of all students */
 	private ArrayList<Student>allStudents;
-	
-	
+
+	/**
+	 * Constructor.
+	 * 
+	 * @param n name to set
+	 * @param us username to set
+	 * @param p password to set
+	 */
 	public StudentUI(String n ,String us, String p){
 		student = new Student();
 		studentH = new StudentHome(n,us,p);
 		allStudents = new ArrayList<Student>();
 	}
-	
-/*
- * Searches for a category
- * @param c Categories (confused what categories  
- */
-	/**public void search(Categories c)
-/**
- * logs the student on 
- * @param n the student's username
- * @param p the student's password
- * @return true if the student was successfully logged on and false otherwise
- */
+
+	/**
+	 * method to logOn as a student
+	 * @param n name of Student
+	 * @param p password of Student
+	 */
 	public void logOn(String n, String p)
 	{
 		student= studentH.login(n, p);
@@ -46,35 +53,38 @@ public class StudentUI {
 			System.out.println("log on successful");
 		}
 	}
-	
-	
+
+/**
+ * gets all the saved universities for student
+ */
 	public void getSavedUniversity()
 	{
 		try
 		{
-	   studentH.getSavedUniversity(student.getUsername());
-	}
+			studentH.getSavedUniversity(student.getUsername());
+		}
 		catch(NullPointerException ex)
 		{
 		}
-		}
-		
-	
+	}
 
-	
-	
+
+
+
+	/**
+	 * method to logOff as a student
+	 */
 	public void logOff()
 	{
 		studentH.logoff();
 	}
 	/**
-	 * sets the users name 
-	 * @param m the new username
+	 * Sets the user to Student s
 	 */
 	public void setUser(Student s)
 	{
 		this.student = s;
-		
+
 	}
 
 
@@ -82,69 +92,55 @@ public class StudentUI {
 	{
 		if(!(student==null))
 		{
-		student.setFirstName(firstname);
-		student.setLastName(lastname);
-		student.setPassword(password);
-		System.out.println("edit successful");
+			student.setFirstName(firstname);
+			student.setLastName(lastname);
+			student.setPassword(password);
+			System.out.println("edit successful");
 		}
 		else
 		{
 			System.out.println("edit unsuccessful");
 		}
 	}
-	
+
 	public void getStudentInfo()
 	{
-      boolean value=  studentH.isUserStudent(student.getUsername());
-      if(value== true)
-      {
-    	  System.out.println(student.toString());
-      }
+		boolean value=  studentH.isUserStudent(student.getUsername());
+		if(value== true)
+		{
+			System.out.println(student.toString());
+		}
 	}
-		
-	/**
-	
-	/**
-	 * removes university from the students saved university list
-	 * @param n the University that the student desires to remove from saved list
-	 * @return true if the university was successfully removed otherwise return false
-	 */
+
+
 	public void removeUniversity(String uni)
 	{
 		try{
 			studentH.removeUniversity(uni);
-			 System.out.println("remove successful");
+			System.out.println("remove successful");
 		}
-			catch(NullPointerException ex)
-			{
-				
-			}
-	}
-	
-	/**
-	 * view the details of a specific university
-	 * @return the string representation of the details of the university
-	 */
-	/*public String viewUniversityDetails(u:University)
-	/**
-	 * save the university to the list of the student's saved universities
-	 * @param u the University student desires to save 
-	 */
-	public void  saveUni(String u)
-	{
-		
-		try{
-		 studentH.saveUniversity(student, u);
-		 System.out.println("Save successful");
-	}
 		catch(NullPointerException ex)
 		{
-			
-		}
-	
-	
-	
 
-}
+		}
+	}
+
+
+	public void  saveUni(String u)
+	{
+
+		try{
+			studentH.saveUniversity(student, u);
+			System.out.println("Save successful");
+		}
+		catch(NullPointerException ex)
+		{
+
+		}
+
+
+
+
+	}
 }
 
