@@ -1,22 +1,52 @@
+/*
+ * File: AdminHome.java
+ */ 
 package project;
 
 import java.util.ArrayList;
+
+/**
+ * Class that creates the methods that an Admin can use
+ * 
+ * @author Ardent Developers
+ * @version March, 2016
+ */
 
 public class AdminHome {
 	
 	
 	/** An array containing the usernames of all existing Students*/
 	private String[] usernames;
+	/** Reference to Admin object*/
 	private Admin admin;
+	/** Reference to Student object */
 	private Student student;
+	/** An arrayList containing all of the admins*/
 	private ArrayList<Admin>allAdmins;
+	/** An arrayList containing all of the students*/
 	private ArrayList<Student>allStudents;
+	/** Reference to the DBController*/
 	private DBController dbl;
 
+	/**
+	 * Contructor.
+	 * 
+	 * @param d database
+	 * @param username username to set
+	 * @param password password to set
+	 */
 	public AdminHome(String d, String username, String password) {
 		 dbl = new DBController(d,username,password);
 		 admin = null;
 	}
+	
+	/**
+	 * method to login the Admin
+	 * 
+	 * @param username Username of the Admin that logs in
+	 * @param password Password of the Admin that logs in
+	 * @return the admin that is logged in
+	 */
 	public Admin login(String username, String password)
 	{
 		boolean result = this.isUserAdmin(username);
@@ -37,6 +67,10 @@ public class AdminHome {
 		
 		
 }
+	/**
+	 * method to log off the admin that is currently logged in
+	 * catches NullPointerException if logOff fails.
+	 */
 	
 	public void logoff()
 	{
@@ -83,7 +117,11 @@ public class AdminHome {
 	
 	
 	
-	
+	/**
+	 * Deactivates a user from the studentHome
+	 * 
+	 * @param username username to be deactivated
+	 */
 	
 	public void DeactivateUser(String username)
 	{
@@ -116,26 +154,51 @@ public class AdminHome {
 	 
 }
 	
+	/**
+	 * Adds a student to the studentHome
+	 * 
+	 * @param student student to be added
+	 */
 	public void addStudent(Student student) {
 		dbl.addStudent(student);
 		
 	}
+	
+	/**
+	 * Edits a student that is currently in the studentHome
+	 * @param s the student to be edited
+	 * @return the edited student information
+	 */
 	
 	public boolean editStudent(Student s)
 	{
 		return dbl.editStudent(s);
 	}
 	
+	/**
+	 * Adds an admin to the AdminHome
+	 * @param admin admin to be added
+	 */
 	public void addAdmin(Admin admin) {
 		dbl.addAdmin(admin);
 		
 	}
+	
+	/**
+	 * Edits an admin that is currently in the adminHome
+	 * @param admin admin to be edited
+	 * @return the edited Admin information
+	 */
 	public boolean editAdmin(Admin admin)
 	{
 		return dbl.editAdmin(admin);
 	}
 	
 
+	/**
+	 * prints out all of the admins in the AdminHome
+	 * @return all admins
+	 */
 	public void getAdmins(){
 		allAdmins = dbl.getAdmins();
 		for(Admin ad : allAdmins)
@@ -143,6 +206,11 @@ public class AdminHome {
 			System.out.println(ad);
 		}
 	}
+	
+	/**
+	 * prints out all of the students in the StudentHome
+	 * @return all students
+	 */
 	
 	public void getStudents()
 	{
@@ -153,10 +221,20 @@ public class AdminHome {
 		}
 	}
 
+	/**
+	 * checks if the current user is an Admin
+	 * @param username the username of the current user
+	 * @return username of the Admin
+	 */
 	public boolean isUserAdmin(String username){
 		return dbl.isUserAdmin(username);
 }
-	
+
+	/**
+	 * checks if current user is a student
+	 * @param username the username of the current user
+	 * @return username of the Student
+	 */
 	public boolean isUserStudent(String username){
 		return dbl.isUserStudent(username);
 }
