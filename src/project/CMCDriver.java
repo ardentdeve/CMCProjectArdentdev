@@ -21,7 +21,7 @@ public class CMCDriver {
 				 studentUI.getSavedUniversity();
 				 System.out.println();
 				 studentUI.saveUni("BOSTON COLLEGE");
-				 studentUI.removeUniversity("BUTLER");
+				 studentUI.removeUniversity("BOSTON");
 				 studentUI.getStudentInfo();
 				 studentUI.logOff();
 				adminUI.logOn("Rahal", "Imad");
