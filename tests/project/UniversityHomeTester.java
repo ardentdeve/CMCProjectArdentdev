@@ -17,9 +17,6 @@ public class UniversityHomeTester {
 	public void setUp() throws Exception {
 		univh = new UniversityHome("data", "username", "password");
 		dbl = new DBController("aonneji", "aonneji", "ajjw");
-		//assertEquals("data is " + univh.getUnivDBlib()(), univh.getUnivDBlib()(),  "data");
-		assertEquals("Username is " + univh.getUsername(), univh.getUsername(),  "Username");
-		assertEquals("firstName is " + univh.getFirstName(), univh.getFirstName(),  "firstName");
 	}
 	
 	
@@ -29,7 +26,7 @@ public class UniversityHomeTester {
 				10000, 50.0, 900, 800, 12000, 90.0, 8000, 70.0, 30.0, 5, 4, 3, "Math");
 		dbl.addUniversity(univ);
 		ArrayList universities = dbl.getUniversities();
-		University univCopy = (University)universities.get(1);
+		University univCopy = (University)universities.get(0);
 		assertTrue("The universities do not match", univ.equals(univCopy));
 	}
 	
