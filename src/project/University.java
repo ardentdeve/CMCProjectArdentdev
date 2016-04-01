@@ -95,167 +95,27 @@ public class University {
 		this.qualityOfLifeScale = qualityOfLifeScale;
 		this.emphases = emphases;
 	}
-
-	/**
-	 * set the name to the specified value
-	 * 
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
+	
+	public void setUniversity(String name, String state, String location, String control ,int numberStudents, double pctFemale,
+			int satVerbal, int satMath, int expenses, double pctFinancialAid, int numberOfApplicants,
+			double pctAdmitted, double pctEnrolled, int academicScale, int socialScale, int qualityOfLifeScale, String emphases) {		
 		this.name = name;
-	}
-	
-	/**
-	 * sets the state to the specified value
-	 * 
-	 * @param state the state to set
-	 */
-	public void setState(String state) {
 		this.state = state;
-	}
-	
-	/**
-	 * sets the location to the specified value
-	 * 
-	 * @param location the location to set
-	 */
-	public void setLocation(String location) {
 		this.location = location;
-	}
-	
-	/**
-	 * sets the control to the specified value
-	 * 
-	 * @param control the control to set
-	 */
-	public void setControl(String control) {
 		this.control = control;
-	}
-	
-	/**
-	 * sets the numberStudents to the specified value
-	 * 
-	 * @param numberStudents the numberStudents to set
-	 */
-	public void setNumberStudents(int numberStudents) {
 		this.numberStudents = numberStudents;
-	}
-	
-	/**
-	 * sets the pctFemale to the specified value
-	 * 
-	 * @param pctFemale the pctFemale to set
-	 */
-	public void setPctFemale(double pctFemale) {
 		this.pctFemale = pctFemale;
-	}
-	
-	/**
-	 * sets the setDatVerbal to the specified value
-	 * 
-	 * @param satVerbal the satVerbal to set
-	 */
-	public void setSatVerbal(int satVerbal) {
 		this.satVerbal = satVerbal;
-	}
-	
-	/**
-	 * sets the satMath to the specified value
-	 * 
-	 * @param satMath the satMath to set
-	 */
-	public void setSatMath(int satMath) {
 		this.satMath = satMath;
-	}
-	
-	/**
-	 * sets the expenses to the specified value
-	 * 
-	 * @param expenses the expenses to set
-	 */
-	public void setExpenses(int expenses) {
 		this.expenses = expenses;
-	}
-	
-	/**
-	 * sets the pctFinancialAid to the specified value
-	 * 
-	 * @param pctFinancialAid the pctFinancialAid to set
-	 */
-	public void setPctFinancialAid(double pctFinancialAid) {
 		this.pctFinancialAid = pctFinancialAid;
-	}
-	
-	/**
-	 * sets the numberOfApplicants to the specified value
-	 * 
-	 * @param numberOfApplicants the numberOfApplicants to set
-	 */
-	public void setNumberOfApplicants(int numberOfApplicants) {
 		this.numberOfApplicants = numberOfApplicants;
-	}
-	
-	/**
-	 * sets the pctAdmitted to the specified value
-	 * 
-	 * @param pctAdmitted the pctAdmitted to set
-	 */
-	public void setPctAdmitted(double pctAdmitted) {
 		this.pctAdmitted = pctAdmitted;
-	}
-	
-	/**
-	 * sets the pctEnrolled to the specified value
-	 * 
-	 * @param pctEnrolled the pctEnrolled to set
-	 */
-	public void setPctEnrolled(double pctEnrolled) {
 		this.pctEnrolled = pctEnrolled;
-	}
-	
-	/**
-	 * sets the academicScale to the specified value
-	 * 
-	 * @param academicScale the academicScale to set
-	 */
-	public void setAcademicScale(int academicScale) {
 		this.academicScale = academicScale;
-	}
-	
-	/**
-	 * sets the socialScale to the specified value
-	 * 
-	 * @param socialScale the socialScale to set
-	 */
-	public void setSocialScale(int socialScale) {
 		this.socialScale = socialScale;
-	}
-	
-	/**
-	 * sets the qualityOfLifeScale to the specified value
-	 * 
-	 * @param qualityOfLifeScale the qualityOfLifeScale to set
-	 */
-	public void setQualityOfLifeScale(int qualityOfLifeScale) {
 		this.qualityOfLifeScale = qualityOfLifeScale;
-	}
-	
-	/**
-	 * sets the emphases to the specified value
-	 * 
-	 * @param emphases the emphases to set
-	 */
-	public void setEmphases(String emphases) {
 		this.emphases = emphases;
-	}
-	
-	/**
-	 * sets the similarUniversities to the specified value
-	 * 
-	 * @param similarUniversities the similarUniversities to set
-	 */
-	public void setSimilarUniversities(List<University> similarUniversities) {
-		this.similarUniversities = similarUniversities;
 	}
 	
 	/**
