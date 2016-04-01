@@ -66,6 +66,8 @@ public class StudentHome {
 		
 }
 	
+	
+	
 	/**
 	 * searches the hashmap in this class for a student of the specified 
 	 * username and returns it if found. If not found it returns null
@@ -76,6 +78,7 @@ public class StudentHome {
 
 	public Student findByUsername(String username)
 	{
+
 		allStudents = dbl.getStudents();
 		Student student = new Student();
 		for(Student s: allStudents)
@@ -95,24 +98,11 @@ public class StudentHome {
 	
 	public void logoff()
 	{
-		try
-		{
-		if(!(stu==null))
-		{
+	
 	       stu.setLoginStatus(false);
 	       stu = null;
-	       System.out.println("log off successful");
 	}
-		else
-		{
-			System.out.println("log off failed - User not logged on");
-		}
-		}
-		catch(NullPointerException ex)
-		{
-			
-		}
-		}
+	
 
 	/**
 	 * Adds a student to the studentHome
@@ -157,13 +147,10 @@ public class StudentHome {
 	
 	
 	
-	public void editProfile(String firstname, String lastname, String password) {
+	public boolean editProfile(String firstname, String lastname, String password) {
 	   stu = new Student(firstname,lastname,stu.getUsername(), password,stu.getType(),stu.getStatus());
-	   boolean value = dbl.editStudent(stu);
-	   if(value)
-	   {
-		   System.out.println("Edit profile was successful");
-	   }
+	   return dbl.editStudent(stu);
+
 	}
 	   
 	   

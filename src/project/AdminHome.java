@@ -67,6 +67,9 @@ public class AdminHome {
 
 
 	}
+	
+	
+	
 	/**
 	 * method to log off the admin that is currently logged in
 	 * catches NullPointerException if logOff fails.
@@ -74,24 +77,10 @@ public class AdminHome {
 
 	public void logoff()
 	{
-		try
-		{
-			if(!(admin==null))
-			{
 				admin.setLoginStatus(false);
-				admin = null;
-				System.out.println("log off successful");
-			}
-			else
-			{
-				System.out.println("log off failed - User not logged on");
-			}
-		}
-		catch(NullPointerException ex)
-		{
-
-		}
-	}
+				admin = null;			
+		
+}
 
 
 
@@ -123,17 +112,15 @@ public class AdminHome {
 	 * @param username username to be deactivated
 	 */
 
-	public void DeactivateUser(String username)
+	public boolean DeactivateUser(String username)
 	{
 		allStudents= dbl.getStudents();
 		boolean value = false;
-
 	  if(this.isUserAdmin(username)== true)
 	  {
 		  Admin adminS = findAdmin(username);
 		  adminS = new Admin(adminS.getFirstName(),adminS.getLastName(),adminS.getUsername(), adminS.getPassword(),adminS.getType(),'N');
 		  value = this.editAdmin(adminS);
-		  System.out.println("The Admin with this username : " + username + " - has been deactivated"); 
 	  }
 	  else if(this.isUserStudent(username)== true)
 	  {
@@ -143,35 +130,12 @@ public class AdminHome {
 				{
 			       student = s;
 			      student = new Student(student.getFirstName(),student.getLastName(),student.getUsername(), student.getPassword(),student.getType(),'N');
-
-		if(this.isUserAdmin(username)== true)
-		{
-			Admin adminS = findAdmin(username);
-			adminS = new Admin(adminS.getFirstName(),adminS.getLastName(),adminS.getUsername(), adminS.getPassword(),adminS.getType(),'N');
-
-			System.out.println("The Admin with this username : " + username + " - has been deactivated"); 
-
+			       value = this.editStudent(student);
 		}
-		else if(this.isUserStudent(username)== true)
-		{
-			for(Student s2 :allStudents) 
-			{
-				if(s2.getUsername().equals(username))
-				{
-					student = s2;
-					student = new Student(student.getFirstName(),student.getLastName(),student.getUsername(), student.getPassword(),student.getType(),'N');
-					value = this.editStudent(student);
-				}
-			}
-			System.out.println("The student with this username : " + username + " - has been deactivated"); 
-		}
-		else
-		{
-			System.out.println("User does not exist");
-		}
-				}	
 		 }
+		
 	  }
+	  return value;
 	}
 		 
 

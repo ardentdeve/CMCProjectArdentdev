@@ -35,39 +35,51 @@ public class StudentUI {
 		studentH = new StudentHome(n,us,p);
 		allStudents = new ArrayList<Student>();
 	}
+	
+	public boolean isLoggedOn()
+	{
+		boolean result = false;
+	
+		  if(student != null)
+		{
+		 
+			result = true;
+		}
+		return result;
+	}
 
 	/**
 	 * method to logOn as a student
 	 * @param n name of Student
 	 * @param p password of Student
 	 */
-	public void logOn(String n, String p)
+	public boolean logOn(String n, String p)
 	{
-		student= studentH.login(n, p);
+	
+		student = studentH.login(n, p);
 		if(student==null)
 		{
-			System.out.println("log on failed");
+			return false;
 		}
 		else
 		{
-			System.out.println("log on successful");
+			return false;
 		}
 	}
 
 /**
  * gets all the saved universities for student
+ * 
  */
-	public void getSavedUniversity()
-	{
-		try
-		{
+	public void getSavedUniversity() 
 
+	{   if( isLoggedOn())
+           {
 			studentH.getSavedUniversity();
 		}
-		catch(NullPointerException ex)
-		{
-		}
 	}
+		
+		
 
 
 
@@ -77,39 +89,37 @@ public class StudentUI {
 	 */
 	public void logOff()
 	{
+		if(isLoggedOn())
+		{
 		studentH.logoff();
+	}
 	}
 	/**
 	 * Sets the user to Student s
 	 */
 	public void setUser(Student s)
 	{
+		if(isLoggedOn())
+				{
 		this.student = s;
 
+	}
 	}
 
 
 	public void editProfile(String firstname, String lastname, String password)
 	{
-
-		studentH.editProfile(firstname,lastname,password);
-		if(!(student==null))
-		{
-			student.setFirstName(firstname);
-			student.setLastName(lastname);
-			student.setPassword(password);
-			System.out.println("edit successful");
-		}
-		else
-		{
-			System.out.println("edit unsuccessful");
-		}
-
+         if(isLoggedOn())
+         {
+	
+        	 studentH.editProfile(firstname,lastname,password);
+	}
 	}
 
 	public void getStudentInfo()
 	{
-
+     if(isLoggedOn())
+     {
 	 if(!(student==null))
 	 {
       boolean value=  studentH.isUserStudent(student.getUsername());
@@ -127,36 +137,28 @@ public class StudentUI {
 		}
 
 	}
+	}
 
 
 	public void removeUniversity(String uni)
 	{
-		try{
-			studentH.removeUniversity(uni);
-			System.out.println("remove successful");
-		}
-		catch(NullPointerException ex)
+		if(isLoggedOn())
 		{
-
+			studentH.removeUniversity(uni);
+		
 		}
 	}
+		
+
 
 
 	public void  saveUni(String u)
 	{
-
-		try{
-			studentH.saveUniversity(student, u);
-			System.out.println("Save successful");
-		}
-		catch(NullPointerException ex)
+		if(isLoggedOn())
 		{
-
-		}
-
-
-
-
-	}
+			studentH.saveUniversity(student, u);
+	
+}
+}
 }
 

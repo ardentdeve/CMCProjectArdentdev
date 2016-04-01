@@ -35,32 +35,46 @@ public class AdminUI {
 		uniH= new UniversityHome(n,us,p);
 		allAdmins = new ArrayList<Admin>();
 	}
-
+	public boolean isLoggedOn()
+	{
+		boolean result = false;
+	
+		  if(admin != null)
+		{
+		 
+			result = true;
+		}
+		return result;
+	}
 
 	/**
 	 * method to logOn as an admin
 	 * @param n name of Admin
 	 * @param p password of Admin
 	 */
-	public void logOn(String n, String p)
+	public boolean logOn(String n, String p)
 	{
-		admin= adminH.login(n, p);
-		if(admin==null)
+		admin = adminH.login(n, p);
+		if(student==null)
 		{
-			System.out.println("log on failed");
+			return false;
 		}
 		else
 		{
-			System.out.println("log on successful");
+			return false;
 		}
 	}
+	
 
 	/**
 	 * method to logOff as an Admin
 	 */
 	public void logOff()
 	{
+		if(isLoggedOn())
+		{
 		adminH.logoff();
+	}
 	}
 
 	/**
@@ -69,7 +83,10 @@ public class AdminUI {
 	 */
 	public void addStudent(Student s)
 	{
+		if(isLoggedOn())
+		{
 		adminH.addStudent(s);
+	}
 	}
 
 	/**
@@ -78,7 +95,10 @@ public class AdminUI {
 	 */
 	public void addAdmin(Admin a)
 	{
+		if(isLoggedOn())
+		{
 		adminH.addAdmin(a);
+	}
 	}
 
 	/**
@@ -87,7 +107,10 @@ public class AdminUI {
 	 * @param u the Student to deactivate
 	 */
 	public void deactivateUser(String username){
+		if(isLoggedOn())
+		{
 		adminH.DeactivateUser(username);
+	}
 	}
 
 	/**
@@ -95,18 +118,24 @@ public class AdminUI {
 	 * @param s student that is being edited
 	 * @return the edited student's information
 	 */
-	public boolean editStudent(Student s)
+	public void editStudent(Student s)
 	{
-		return adminH.editStudent(s);
+		if(isLoggedOn())
+			{
+			adminH.editStudent(s);
+			}
 	}
 	/**
 	 * Edits a specific admin in the adminHome
 	 * @param a admin that is being edited
 	 * @return the edited admins information
 	 */
-	public boolean editAdmin(Admin a)
+	public void editAdmin(Admin a)
 	{
-		return adminH.editAdmin(a);
+		if(isLoggedOn())
+		{
+			adminH.editAdmin(a);
+		}
 	}
 
 	/**
@@ -114,7 +143,10 @@ public class AdminUI {
 	 */
 	public void getStudents()
 	{
+		if(isLoggedOn())
+		{
 		adminH.getStudents();
+	}
 	}
 
 	/**
@@ -122,7 +154,10 @@ public class AdminUI {
 	 */
 	public void getAdmins()
 	{
+		if(isLoggedOn())
+		{
 		adminH.getAdmins();
+	}
 	}
 
 	/**
@@ -131,15 +166,21 @@ public class AdminUI {
 	 */
 	public void addUniversity(University u)
 	{
+		if(isLoggedOn())
+		{
 		uniH.addUniversityToList(u);
+	}
 	}
 
 	/**
 	 * Calls universityHome to get all Universities
 	 */
 	public void getUniversities(){
+		if(isLoggedOn())
+		{
 		uniH.getUniversities();
 	}
+}
 }
 
 
