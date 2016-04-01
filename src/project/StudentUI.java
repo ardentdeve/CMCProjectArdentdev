@@ -63,7 +63,7 @@ public class StudentUI {
 		}
 		else
 		{
-			return false;
+			return true;
 		}
 	}
 

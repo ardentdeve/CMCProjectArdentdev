@@ -15,13 +15,13 @@ public class CMCDriver {
 			
 			     StudentUI studentUI= new StudentUI(args[0],args[1], args[2]);
 			      AdminUI   adminUI = new AdminUI(args[0],args[1], args[2]);
-			   System.out.println(studentUI.logOn("nicol1eK", "Ash1234"));
+			   System.out.println(studentUI.logOn("nicoleK", "Ash1234"));
 			   studentUI.getStudentInfo();
 				 studentUI.getSavedUniversity();
 				 studentUI.saveUni("BOSTON COLLEGE");
 				 studentUI.removeUniversity("BOSTON");
 				 studentUI.logOff();
-				System.out.println(adminUI.logOn("Rahal", "Im1ad"));
+				System.out.println(adminUI.logOn("Rahal", "Imad"));
 			     Student s = new Student("Mimi", "Kardashian", "MimiLuv", "mi1234", 'u', 'Y');
 			   adminUI.addStudent(s);
 			    Student editS = new Student("MimiN", "Kardashian", "MimiLuv", "mi1234", 'u', 'Y');

@@ -55,13 +55,13 @@ public class AdminUI {
 	public boolean logOn(String n, String p)
 	{
 		admin = adminH.login(n, p);
-		if(student==null)
+		if(admin==null)
 		{
 			return false;
 		}
 		else
 		{
-			return false;
+			return true;
 		}
 	}
 	
