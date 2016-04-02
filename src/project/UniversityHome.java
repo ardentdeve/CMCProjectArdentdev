@@ -8,7 +8,8 @@ import java.util.*;
 import dblibrary.project.csci230.UniversityDBLibrary;
 
 /**
- * A class containing an ArrayList of University objects that make up the CMC web site
+ * A class that functions as a home for all Universities. The implemented methods 
+ * are used to edit the list of Universities
  * 
  * @author Ardent Developers
  * @version March, 2016
@@ -30,9 +31,9 @@ public class UniversityHome {
 	public UniversityHome(String data, String username, String password){
 		dbl= new DBController(data,username,password);
 	}
-	
+
 	/**
-	 * Adds the specified University to universities using the database controller
+	 * Adds the specified University to the list universities using the database controller
 	 * 
 	 * @param u the University to add
 	 */
@@ -41,28 +42,32 @@ public class UniversityHome {
 	}
 
 	/** 
-	 * Prints all the universities in the database
+	 * Sets the universities list to the list of Universities in the database
 	 */
 	public void getUniversities(){ 
 		universities = dbl.getUniversities();
-	
 	}
-	
-	public int editUniversities(University u)
-	{
+
+	/**
+	 * Edits the specified Universities information using the DBController class
+	 */
+	public int editUniversities(University u) {
 		return dbl.editUniversity(u);
-		
 	}
-	
-	public int deleteUniversities(University u)
-	{
+
+	/**
+	 * Deletes the specified University from the home
+	 * 
+	 * @param u the University to delete
+	 */
+	public int deleteUniversities(University u) {
 		return dbl.deleteUniversity(u);
 	}
-	
-	
-	public int addUniversityEmphasis(University u, String emphasis)
-	{
+	/**
+	 * Adds the specified emphasis to the specified University 
+	 * using the DBController class method
+	 */
+	public int addUniversityEmphasis(University u, String emphasis) {
 		return dbl.addUniversityEmphasis(u, emphasis);
 	}
 }
-
