@@ -7,33 +7,34 @@ import org.junit.Test;
 
 public class AdminTester {
 	private Admin admin;
+	private Admin admin2;
 	
 	@Before
 	public void init()
 	{
-		admin = new Admin("password", "Username", "firstName", "lastName", 'a', 'y');
+		admin = new Admin("andy", "Lemon", "adny1234", "password", 'a', 'Y');
+		admin2 = new Admin("jamie", "Kelly", "Kelly1234", "password", 'a', 'Y');
 	}
 	
 	
 	@Test 
-	public void testConstructor(){
-	assertEquals("password is " + admin.getPassword(), admin.getPassword(),  "password");
-	assertEquals("Username is " + admin.getUsername(), admin.getUsername(),  "Username");
-	assertEquals("firstName is " + admin.getFirstName(), admin.getFirstName(),  "firstName");
-	assertEquals("lastName is " + admin.getLastName(), admin.getLastName(),  "lastName");
-	assertTrue("type is " + admin.getType(), admin.getType()==  'a');
-	assertEquals("status is " + admin.getStatus(), admin.getStatus(),  'y');
+	public void testConstructor1(){
+	assertEquals("andy",admin.getFirstName());
+	assertEquals("Lemon",admin.getLastName());
+	assertEquals("adny1234",admin.getUsername());
+	assertEquals("password",admin.getPassword());
+	assertEquals('a',admin.getType());
+	assertEquals('Y',admin.getStatus());
 	}
 	
-	@Test 
 	public void testConstructor2(){
-	admin = new Admin("firstName", "lastName", "Username", "password", 'a');
-	assertEquals("password is " + admin.getPassword(), admin.getPassword(),  "password");
-	assertEquals("Username is " + admin.getUsername(), admin.getUsername(),  "Username");
-	assertEquals("firstName is " + admin.getFirstName(), admin.getFirstName(),  "firstName");
-	assertEquals("lastName is " + admin.getLastName(), admin.getLastName(),  "lastName");
-	assertEquals("type is " + admin.getType(), admin.getType(),  'a');
-	}
+		assertEquals("jamie",admin2.getFirstName());
+		assertEquals("Kelly",admin2.getLastName());
+		assertEquals("Kelly1234",admin2.getUsername());
+		assertEquals("password",admin2.getPassword());
+		assertEquals('a',admin2.getType());
+		assertEquals('Y',admin2.getStatus());
+		}
 }
 
 
