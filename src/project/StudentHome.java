@@ -121,12 +121,12 @@ public class StudentHome {
 	 * @return
 	 */
 	
-	public boolean removeUniversity(String school)
+	public int removeUniversity(String school)
 	{
 		return dbl.removeSchool(stu.getUsername(), school);
 	}
 	
-	public boolean saveUniversity(Student student,String school)
+	public int saveUniversity(Student student,String school)
 	{
 		return dbl.saveSchool(student, school);
 	}
@@ -147,7 +147,7 @@ public class StudentHome {
 	
 	
 	
-	public boolean editProfile(String firstname, String lastname, String password) {
+	public int editProfile(String firstname, String lastname, String password) {
 	   stu = new Student(firstname,lastname,stu.getUsername(), password,stu.getType(),stu.getStatus());
 	   return dbl.editStudent(stu);
 

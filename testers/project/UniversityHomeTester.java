@@ -14,21 +14,33 @@ public class UniversityHomeTester {
 	
 	
 	@Before
-	public void setUp() throws Exception {
-		univh = new UniversityHome("data", "username", "password");
-		dbl = new DBController("aonneji", "aonneji", "ajjw");
+	public void setUp() {
+		univh = new UniversityHome("ardentdeve","ardentdeve","ajjw4");
 	}
 	
 	
 	@Test
-	public void testGetUniversities() {
-		University univ = new University("name", "state", "location", "control", 
-				10000, 50.0, 900, 800, 12000, 90.0, 8000, 70.0, 30.0, 5, 4, 3, "Math");
-		dbl.addUniversity(univ);
-		ArrayList universities = dbl.getUniversities();
-		University univCopy = (University)universities.get(0);
-		assertTrue("The universities do not match", univ.equals(univCopy));
+	public void testAddUniversities() {
+		University univ = new University("Dary University", "Albaman", "City", "PRIVATE", 
+				5000,50.0,800,700,800,24000.0,50,1000.5,25.0,70,4,4,"4");
+		assertEquals(1,univh.addUniversityToList(univ));
+		assertEquals(1,univh.deleteUniversities(univ));
+	
 	}
+	@Test
+	public void testEditUniversities(){
+		University univ = new University("Missipii International", "Missippi", "URBAN", "PRIVATE", 
+				5000,50.0,800,800,800,22000.0,50,1000.5,25.0,70,4,4,"4");
+		assertEquals(1,univh.addUniversityToList(univ));
+		univ = new University("Missipii International", "Houston", "City", "PRIVATE", 
+				5000,50.0,800,800,800,22000.0,50,1000.5,25.0,70,4,4,"4");
+		assertEquals(1,univh.editUniversities(univ));
+		assertEquals(1,univh.deleteUniversities(univ));
+	}
+	
+
+	
+	
 	
 	
 }

@@ -36,19 +36,33 @@ public class UniversityHome {
 	 * 
 	 * @param u the University to add
 	 */
-	public void addUniversityToList(University u){
-		dbl.addUniversity(u);
+	public int addUniversityToList(University u){
+		return dbl.addUniversity(u);
 	}
 
 	/** 
 	 * Prints all the universities in the database
 	 */
-	public void  getUniversities(){ 
+	public void getUniversities(){ 
 		universities = dbl.getUniversities();
-		for(University u : universities)
-		{
-			System.out.println(u);
-		}
+	
+	}
+	
+	public int editUniversities(University u)
+	{
+		return dbl.editUniversity(u);
+		
+	}
+	
+	public int deleteUniversities(University u)
+	{
+		return dbl.deleteUniversity(u);
+	}
+	
+	
+	public int addUniversityEmphasis(University u, String emphasis)
+	{
+		return dbl.addUniversityEmphasis(u, emphasis);
 	}
 }
 

@@ -81,24 +81,28 @@ public class AdminUI {
 	 * method for an admin to add a student to StudentHome
 	 * @param s the student that is being added
 	 */
-	public void addStudent(Student s)
+	public int addStudent(Student s)
 	{
+		int value = -1;
 		if(isLoggedOn())
 		{
-		adminH.addStudent(s);
+		value = adminH.addStudent(s);
 	}
+		return value;
 	}
 
 	/**
 	 * method for an admin to add another admin to adminHome
 	 * @param a the admin that is going to be added
 	 */
-	public void addAdmin(Admin a)
+	public int addAdmin(Admin a)
 	{
+		int value = -1;
 		if(isLoggedOn())
 		{
-		adminH.addAdmin(a);
+		value = adminH.addAdmin(a);
 	}
+		return value;
 	}
 
 	/**
@@ -106,36 +110,44 @@ public class AdminUI {
 	 * 
 	 * @param u the Student to deactivate
 	 */
-	public void deactivateUser(String username){
+	public int deactivateUser(String username){
+		int value = -1;
 		if(isLoggedOn())
 		{
-		adminH.DeactivateUser(username);
+		value = adminH.DeactivateUser(username);
 	}
+		return value;
 	}
 
 	/**
 	 * Edits a specific student in the studentHome
 	 * @param s student that is being edited
+	 * @return 
 	 * @return the edited student's information
 	 */
-	public void editStudent(Student s)
+	public int editStudent(Student s)
 	{
+		int value =-1;
 		if(isLoggedOn())
 			{
-			adminH.editStudent(s);
+			value = adminH.editStudent(s);
 			}
+		return value;
 	}
 	/**
 	 * Edits a specific admin in the adminHome
 	 * @param a admin that is being edited
+	 * @return 
 	 * @return the edited admins information
 	 */
-	public void editAdmin(Admin a)
+	public int editAdmin(Admin a)
 	{
+		int value =-1;
 		if(isLoggedOn())
 		{
-			adminH.editAdmin(a);
+			value = adminH.editAdmin(a);
 		}
+		return value;
 	}
 
 	/**
@@ -164,12 +176,14 @@ public class AdminUI {
 	 * Adds an University to the universityHome
 	 * @param u University to be added
 	 */
-	public void addUniversity(University u)
+	public int addUniversity(University u)
 	{
+		int value = -1;
 		if(isLoggedOn())
 		{
-		uniH.addUniversityToList(u);
+		value = uniH.addUniversityToList(u);
 	}
+		return value;
 	}
 
 	/**
@@ -180,6 +194,17 @@ public class AdminUI {
 		{
 		uniH.getUniversities();
 	}
+}
+	
+	public int editUniversities(University u)
+	{
+		int value = -1;
+		if(isLoggedOn())
+		{
+			value = uniH.editUniversities(u);
+		}
+		return value;
+	
 }
 }
 

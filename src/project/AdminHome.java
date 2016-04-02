@@ -112,10 +112,10 @@ public class AdminHome {
 	 * @param username username to be deactivated
 	 */
 
-	public boolean DeactivateUser(String username)
+	public int DeactivateUser(String username)
 	{
 		allStudents= dbl.getStudents();
-		boolean value = false;
+		int value = -1;
 	  if(this.isUserAdmin(username)== true)
 	  {
 		  Admin adminS = findAdmin(username);
@@ -145,8 +145,8 @@ public class AdminHome {
 	 * 
 	 * @param student student to be added
 	 */
-	public void addStudent(Student student) {
-		dbl.addStudent(student);
+	public int addStudent(Student student) {
+		return dbl.addStudent(student);
 
 	}
 
@@ -156,7 +156,7 @@ public class AdminHome {
 	 * @return the edited student information
 	 */
 
-	public boolean editStudent(Student s)
+	public int editStudent(Student s)
 	{
 		return dbl.editStudent(s);
 	}
@@ -165,8 +165,8 @@ public class AdminHome {
 	 * Adds an admin to the AdminHome
 	 * @param admin admin to be added
 	 */
-	public void addAdmin(Admin admin) {
-		dbl.addAdmin(admin);
+	public int addAdmin(Admin admin) {
+		return dbl.addAdmin(admin);
 
 	}
 
@@ -175,7 +175,7 @@ public class AdminHome {
 	 * @param admin admin to be edited
 	 * @return the edited Admin information
 	 */
-	public boolean editAdmin(Admin admin)
+	public int editAdmin(Admin admin)
 	{
 		return dbl.editAdmin(admin);
 	}
