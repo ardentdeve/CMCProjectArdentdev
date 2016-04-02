@@ -25,9 +25,8 @@ public class Admin extends User {
 	 * @param type type to set
 	 * @param status status to set
 	 */
-
-	public Admin(String pw, String un, String firstName, String lastName, char type, char status) {
-		super(firstName, lastName, un, pw, type, status);
+	public Admin(String firstName, String lastName, String username, String password, char type, char status) {
+		super(firstName, lastName, username, password, type, status);
 	}
 
 	/**

@@ -56,7 +56,7 @@ public class AdminHome {
 			if(admin.getPassword().equals(password))
 			{
 				this.admin=  admin;
-				admin.setLoginStatus(true);
+				this.admin.setLoginStatus(true);
 
 			}
 

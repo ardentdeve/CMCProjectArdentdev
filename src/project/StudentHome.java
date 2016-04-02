@@ -54,7 +54,7 @@ public class StudentHome {
 			if(student.getPassword().equals(password))
 			{
 				stu= student;
-				student.setLoginStatus(true);
+				stu.setLoginStatus(true);
 				
 			}
 							
