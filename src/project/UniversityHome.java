@@ -64,5 +64,10 @@ public class UniversityHome {
 	{
 		return dbl.addUniversityEmphasis(u, emphasis);
 	}
+	
+	public int deleteUniversityEmphasis(University u,String emphasis)
+	{
+		return dbl.removeUniversityEmphasis(u.getName(),emphasis);
+	}
 }
 

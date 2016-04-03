@@ -23,4 +23,36 @@ public class StudentHomeTest {
 		assertNull(sh.login("nicole1K", "Ash1234"));
 	}
 	
+	@Test
+	public void findByUserNamePasses()
+	{
+		assertNotNull(sh.findByUsername("nicoleK"));
+	}
+	@Test
+	public void findByUserNameFailsForWrongUser()
+	{
+		assertNull(sh.findByUsername("nicol1"));
+	}
+	@Test
+	public void removeUniversityPasses()
+	{
+		Student student = new Student("Al","Jacob","AlJ","aj233",'a');
+		sh.addStudent(student);
+	    sh.saveUniversity(student,"APPLE TECHNOLOGY");
+	    assertEquals(1, sh.removeUniversity(student,"APPLE TECHNOLOGY"));
+	    sh.deleteStudent(student);  
+	}
+	
+	@Test 
+	public void removeUniversityFailsForEmptySavedList()
+	{
+		Student student = new Student("Al","Jacob","AlJ","aj233",'a');
+		sh.addStudent(student);
+	   assertEquals(0, sh.removeUniversity(student,"APPLE TECHNOLOGY"));
+	    sh.deleteStudent(student);
+	}
+	
+
+	
+	
 }

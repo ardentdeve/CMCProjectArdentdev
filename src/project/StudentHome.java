@@ -65,6 +65,10 @@ public class StudentHome {
 		
 		
 }
+	public int deleteStudent(Student s)
+	{
+		return dbl.deleteStudent(s.getUsername());
+	}
 	
 	
 	
@@ -80,7 +84,7 @@ public class StudentHome {
 	{
 
 		allStudents = dbl.getStudents();
-		Student student = new Student();
+		Student student= null;
 		for(Student s: allStudents)
 		{
 			if(s.getUsername().equals(username))
@@ -121,9 +125,9 @@ public class StudentHome {
 	 * @return
 	 */
 	
-	public int removeUniversity(String school)
+	public int removeUniversity(Student s, String school)
 	{
-		return dbl.removeSchool(stu.getUsername(), school);
+		return dbl.removeSchool(s.getUsername(), school);
 	}
 	
 	public int saveUniversity(Student student,String school)

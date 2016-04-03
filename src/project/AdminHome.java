@@ -93,7 +93,7 @@ public class AdminHome {
 	 */
 	public Admin findAdmin(String username){
 		allAdmins = dbl.getAdmins();
-		Admin ad = new Admin();
+		Admin ad = null;
 		for(Admin a : allAdmins)
 		{
 			if(a.getUsername().equals(username))

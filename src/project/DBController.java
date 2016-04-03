@@ -204,6 +204,11 @@ public int deleteUniversity(University u)
 		return  univDBlib.user_saveSchool(user.getUsername(),uni);
 		
 	}
+	
+	public int deleteStudent(String s)
+	{
+		return univDBlib.user_deleteUser(s);
+	}
 
 	/**
 	 * When called, this method creates a new student record using the information provided in the parameters.
@@ -294,6 +299,11 @@ public int deleteUniversity(University u)
 			}
 		}
 		return value;
+	}
+
+	public int removeUniversityEmphasis(String uni, String emphasis)
+	{
+		return univDBlib.university_removeUniversityEmphasis(uni, emphasis);
 	}
 
 

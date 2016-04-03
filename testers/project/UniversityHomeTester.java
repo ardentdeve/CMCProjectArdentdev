@@ -24,7 +24,7 @@ public class UniversityHomeTester {
 		University univ = new University("Dary University", "Albaman", "City", "PRIVATE", 
 				5000,50.0,800,700,800,24000.0,50,1000.5,25.0,70,4,4,"4");
 		assertEquals(1,univh.addUniversityToList(univ));
-		assertEquals(1,univh.deleteUniversities(univ));
+		univh.deleteUniversities(univ);
 	
 	}
 	@Test
@@ -35,8 +35,21 @@ public class UniversityHomeTester {
 		univ = new University("Missipii International", "Houston", "City", "PRIVATE", 
 				5000,50.0,800,800,800,22000.0,50,1000.5,25.0,70,4,4,"4");
 		assertEquals(1,univh.editUniversities(univ));
-		assertEquals(1,univh.deleteUniversities(univ));
+		univh.deleteUniversities(univ);
 	}
+	@Test
+	public void testAddEmphasis(){
+		University univ = new University("Missipii International", "Houston", "City", "PRIVATE", 
+				5000,50.0,800,800,800,22000.0,50,1000.5,25.0,70,4,4,"4");
+		univh.addUniversityToList(univ);
+		assertEquals(1,univh.addUniversityEmphasis(univ, "Medicine"));
+		univh.deleteUniversityEmphasis(univ,"Medicine");
+		univh.deleteUniversities(univ);
+		
+	}
+	
+	
+	
 	
 
 	
