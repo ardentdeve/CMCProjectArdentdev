@@ -59,9 +59,7 @@ public class StudentHome {
 				student.setLoginStatus(true);
 			}    
 		}
-		return stu;
-
-		
+		return stu;	
 		
 }
 	public int deleteStudent(Student s)

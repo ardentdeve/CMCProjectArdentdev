@@ -36,7 +36,7 @@ public class AdminHomeTest {
 	}
 	
 	@Test
-	public void deactivateUser(){
+	public void testDeactivateUser(){
 		assertEquals(1, ah.DeactivateUser("nicoleK"));
 		assertTrue(sh.findByUsername("nicoleK").getStatus()=='N');
 		
@@ -45,7 +45,7 @@ public class AdminHomeTest {
 	}
 	
 	@Test
-	public void activateUser(){
+	public void testActivateUser(){
 		assertEquals(1, ah.ActivateUser("nicoleK"));
 		assertTrue(sh.findByUsername("nicoleK").getStatus()=='Y');
 		
@@ -54,13 +54,36 @@ public class AdminHomeTest {
 	}
 	
 	@Test
-	public void addStudent(){
-		Student student = new Student("Andrew1", "Wiggins", "AW2", "watzpoppin", 'u', 'Y');
+	public void testAddStudent(){
+		Student student = new Student("Andrew1", "Wiggins", "hello12", "watzpoppin", 'u', 'Y');
 		assertEquals(1, ah.addStudent(student));
-		assertNotNull(sh.findByUsername("AW221"));
+		Student newStudent = sh.findByUsername("hello12");
+		assertEquals(student.getUsername(), newStudent.getUsername());
+		sh.deleteStudent(student);
+	}
+	
+	@Test
+	public void testEditStudent(){
 		
-		//Student newStudent = sh.findByUsername("AW22");
-		//assertEquals(student,newStudent);
+	}
+	
+	@Test
+	public void testAddAdmin(){
+		
+	}
+	
+	@Test
+	public void testEditAdmin(){
+		
+	}
+	
+	@Test
+	public void testIsUserAdmin(){
+		
+	}
+	
+	@Test
+	public void testIsUserStudent(){
 		
 	}
 }

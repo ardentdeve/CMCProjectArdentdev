@@ -212,6 +212,10 @@ public class AdminHome {
 	}
 
 
+	public int deleteAdmin(Admin a)
+	{
+		return dbl.deleteAdmin(a.getUsername());
+	}
 	/**
 	 * prints out all of the admins in the AdminHome
 	 * @return all admins
