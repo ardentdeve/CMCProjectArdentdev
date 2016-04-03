@@ -67,9 +67,9 @@ public class AdminHome {
 
 
 	}
-	
-	
-	
+
+
+
 	/**
 	 * method to log off the admin that is currently logged in
 	 * catches NullPointerException if logOff fails.
@@ -77,10 +77,10 @@ public class AdminHome {
 
 	public void logoff()
 	{
-				admin.setLoginStatus(false);
-				admin = null;			
-		
-}
+		admin.setLoginStatus(false);
+		admin = null;			
+
+	}
 
 
 
@@ -93,7 +93,7 @@ public class AdminHome {
 	 */
 	public Admin findAdmin(String username){
 		allAdmins = dbl.getAdmins();
-		Admin ad = new Admin();
+		Admin ad = null;
 		for(Admin a : allAdmins)
 		{
 			if(a.getUsername().equals(username))
@@ -116,28 +116,61 @@ public class AdminHome {
 	{
 		allStudents= dbl.getStudents();
 		int value = -1;
-	  if(this.isUserAdmin(username)== true)
-	  {
-		  Admin adminS = findAdmin(username);
-		  adminS = new Admin(adminS.getFirstName(),adminS.getLastName(),adminS.getUsername(), adminS.getPassword(),adminS.getType(),'N');
-		  value = this.editAdmin(adminS);
-	  }
-	  else if(this.isUserStudent(username)== true)
-	  {
-		 for(Student s :allStudents) 
-		 {
-			 if(s.getUsername().equals(username))
-				{
-			       student = s;
-			      student = new Student(student.getFirstName(),student.getLastName(),student.getUsername(), student.getPassword(),student.getType(),'N');
-			       value = this.editStudent(student);
+		if(this.isUserAdmin(username))
+		{
+			Admin adminS = findAdmin(username);
+			adminS = new Admin(adminS.getFirstName(),adminS.getLastName(),adminS.getUsername(), adminS.getPassword(),adminS.getType(),'N');
+			value = this.editAdmin(adminS);
 		}
-		 }
-		
-	  }
-	  return value;
+		else if(this.isUserStudent(username))
+		{
+			for(Student s :allStudents) 
+			{
+				if(s.getUsername().equals(username))
+				{
+					student = s;
+					student = new Student(student.getFirstName(),student.getLastName(),student.getUsername(), student.getPassword(),student.getType(),'N');
+					value = this.editStudent(student);
+				}
+			}
+
+		}
+		return value;
 	}
-		 
+
+	
+	/**
+	 * Activates a user from the studentHome
+	 * 
+	 * @param username username to be deactivated
+	 */
+	
+	public int ActivateUser(String username)
+	{
+		allStudents= dbl.getStudents();
+		int value = -1;
+		if(this.isUserAdmin(username))
+		{
+			Admin adminS = findAdmin(username);
+			adminS = new Admin(adminS.getFirstName(),adminS.getLastName(),adminS.getUsername(), adminS.getPassword(),adminS.getType(),'Y');
+			value = this.editAdmin(adminS);
+		}
+		else if(this.isUserStudent(username))
+		{
+			for(Student s :allStudents) 
+			{
+				if(s.getUsername().equals(username))
+				{
+					student = s;
+					student = new Student(student.getFirstName(),student.getLastName(),student.getUsername(), student.getPassword(),student.getType(),'Y');
+					value = this.editStudent(student);
+				}
+			}
+
+		}
+		return value;
+	}
+
 
 
 	/**
@@ -147,7 +180,6 @@ public class AdminHome {
 	 */
 	public int addStudent(Student student) {
 		return dbl.addStudent(student);
-
 	}
 
 	/**
@@ -156,8 +188,7 @@ public class AdminHome {
 	 * @return the edited student information
 	 */
 
-	public int editStudent(Student s)
-	{
+	public int editStudent(Student s){
 		return dbl.editStudent(s);
 	}
 
