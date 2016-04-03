@@ -51,7 +51,7 @@ public class StudentHome {
 	public Student login(String username, String password)
 	{
 		boolean result = this.isUserStudent(username);
-		if(result == true) {
+		if(result) {
 			Student student = this.findByUsername(username);
 
 			if(student.getPassword().equals(password)) {
@@ -60,8 +60,15 @@ public class StudentHome {
 			}    
 		}
 		return stu;
-	}
 
+		
+		
+}
+	public int deleteStudent(Student s)
+	{
+		return dbl.deleteStudent(s.getUsername());
+	}
+	
 	/**
 	 * searches the allStudents list in this class for a student of the specified 
 	 * username and returns it if found.
@@ -72,7 +79,7 @@ public class StudentHome {
 
 	public Student findByUsername(String username) {
 		allStudents = dbl.getStudents();
-		Student student = new Student();
+		Student student= null;
 		for(Student s: allStudents)
 		{
 			if(s.getUsername().equals(username))
@@ -108,8 +115,11 @@ public class StudentHome {
 	 * @param school the name of the school to remove
 	 * @return 1 if the remove succeeded and -1 otherwise
 	 */
-	public int removeUniversity(String school) {
-		return dbl.removeSchool(stu.getUsername(), school);
+	
+	public int removeUniversity(Student s, String school)
+	{
+		return dbl.removeSchool(s.getUsername(), school);
+
 	}
 
 	/**

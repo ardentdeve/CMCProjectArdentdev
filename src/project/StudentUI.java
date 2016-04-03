@@ -144,7 +144,7 @@ public class StudentUI {
 	{
 		if(isLoggedOn())
 		{
-			studentH.removeUniversity(uni);
+			studentH.removeUniversity(student,uni);
 		
 		}
 	}
