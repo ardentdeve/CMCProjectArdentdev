@@ -131,15 +131,17 @@ public class StudentHome {
 	/**
 	 * prints the saved schools of the current students saved schools list
 	 */
-	public void getSavedUniversity() {
+	public ArrayList<University> getSavedUniversity() {
+		if(stu==null){
+			throw new IllegalArgumentException("Invalid login Info");}
+		else
+		{
 		ArrayList<University> savedSchool= dbl.getSavedSchool(stu.getUsername());
 		stu.setSavedUni(savedSchool);
 		ArrayList<University> uniLists = stu.getSavedUniversity();
-		for(University u: savedSchool) {
-			System.out.println(u.getName());
-		}
+		return uniLists;
 	}
-
+	}
 	/**
 	 * Creates a Student with the specified information and calls editStudent from 
 	 * the DBController class
@@ -151,10 +153,13 @@ public class StudentHome {
 	 * @return the result of the editStudent method from the DBController
 	 */
 	public int editProfile(String firstname, String lastname, String password) {
+		if(stu == null){
+			throw new IllegalArgumentException("Invalid login Info");}
+		else{
 		stu = new Student(firstname,lastname,stu.getUsername(), password,stu.getType(),stu.getStatus());
-		return dbl.editStudent(stu);
-	}
+		}return dbl.editStudent(stu);
 
+			}
 	/**
 	 * Check if the Student correpsonding to the specfied username is a student by 
 	 * calling the similar method in the DBController class

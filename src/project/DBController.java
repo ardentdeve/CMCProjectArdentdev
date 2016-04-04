@@ -31,7 +31,7 @@ public class DBController {
 	 * @param username username to access database
 	 * @param password password to access database
 	 */
-	public  DBController(String db, String username, String password) {
+	public DBController(String db, String username, String password) {
 		univDBlib = new UniversityDBLibrary(db,username,password);
 	}
 
@@ -51,7 +51,7 @@ public class DBController {
 	 *         null is returned if there are no universities in the database or if a database error is encountered
 	 */
 	public ArrayList<University> getUniversities() {
-		String arrayUni [][]= univDBlib.university_getUniversities();
+		String arrayUni [][] = univDBlib.university_getUniversities();
 		ArrayList<University> listUniversities = new ArrayList<University>();
 		for(int i=0;i< arrayUni.length;i++) {
 			listUniversities.add(new University(arrayUni[i][0],arrayUni[i][1],arrayUni[i][2],arrayUni[i][3], 
