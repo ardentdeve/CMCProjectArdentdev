@@ -35,7 +35,10 @@ public class AdminUI {
 		uniH= new UniversityHome(n,us,p);
 		allAdmins = new ArrayList<Admin>();
 	}
-
+/**
+ * Method to check if the admin is logged in.
+ * @return boolean true if logged in
+ */
 	public boolean isLoggedOn()
 	{
 		boolean result = false;
