@@ -211,7 +211,11 @@ public class AdminHome {
 		return dbl.editAdmin(admin);
 	}
 
-
+/**
+ * Deletes an admin the is currently in teh adminHome
+ * @param a admin to be deleted
+ * @return the deleted admin
+ */
 	public int deleteAdmin(Admin a)
 	{
 		return dbl.deleteAdmin(a.getUsername());
