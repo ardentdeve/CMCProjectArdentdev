@@ -53,4 +53,12 @@ public class StudentUITest {
 		assertEquals(false, studentH2.isLoggedOn());
 
 	}
+	
+	@Test
+	public void testsetUser() {
+		studentH2.logOn("nicoleK", "Ash1234");
+		studentH2.setUser();
+		assertEquals(false, studentH2.isLoggedOn());
+
+	}
 }

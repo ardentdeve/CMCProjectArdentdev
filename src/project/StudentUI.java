@@ -97,17 +97,6 @@ public class StudentUI {
 			this.student = null;
 		}
 	}
-	/**
-	 * Sets the user to Student s
-	 */
-	public void setUser(Student s)
-	{
-		if(isLoggedOn())
-		{
-			this.student = s;
-
-		}
-	}
 
 
 	public void editProfile(String firstname, String lastname, String password)
