@@ -35,14 +35,14 @@ public class StudentUI {
 		studentH = new StudentHome(n,us,p);
 		allStudents = new ArrayList<Student>();
 	}
-	
+
 	public boolean isLoggedOn()
 	{
 		boolean result = false;
-	
-		  if(student != null)
+
+		if(student != null)
 		{
-		 
+
 			result = true;
 		}
 		return result;
@@ -55,7 +55,7 @@ public class StudentUI {
 	 */
 	public boolean logOn(String n, String p)
 	{
-	
+
 		student = studentH.login(n, p);
 		if(student==null)
 		{
@@ -67,19 +67,22 @@ public class StudentUI {
 		}
 	}
 
-/**
- * gets all the saved universities for student
- * 
- */
-	public void getSavedUniversity() 
+	/**
+	 * gets all the saved universities for student
+	 * 
+	 */
+	public ArrayList<University> getSavedUniversity() 
+	{   
+		ArrayList<University>uniLists = null;
 
-	{   if( isLoggedOn())
-           {
-			studentH.getSavedUniversity();
+		if( isLoggedOn())
+		{
+			uniLists = studentH.getSavedUniversity();
 		}
+		return uniLists;
 	}
-		
-		
+
+
 
 
 
@@ -91,8 +94,8 @@ public class StudentUI {
 	{
 		if(isLoggedOn())
 		{
-		studentH.logoff();
-	}
+			this.student = null;
+		}
 	}
 	/**
 	 * Sets the user to Student s
@@ -100,43 +103,43 @@ public class StudentUI {
 	public void setUser(Student s)
 	{
 		if(isLoggedOn())
-				{
-		this.student = s;
+		{
+			this.student = s;
 
-	}
+		}
 	}
 
 
 	public void editProfile(String firstname, String lastname, String password)
 	{
-         if(isLoggedOn())
-         {
-	
-        	 studentH.editProfile(firstname,lastname,password);
-	}
+		if(isLoggedOn())
+		{
+
+			studentH.editProfile(firstname,lastname,password);
+		}
 	}
 
 	public void getStudentInfo()
 	{
-     if(isLoggedOn())
-     {
-	 if(!(student==null))
-	 {
-      boolean value=  studentH.isUserStudent(student.getUsername());
-      if(value== true)
-      {
-    	  System.out.println(student.toString());
-      }
-	 }
-	 
-
-		boolean value=  studentH.isUserStudent(student.getUsername());
-		if(value== true)
+		if(isLoggedOn())
 		{
-			System.out.println(student.toString());
-		}
+			if(!(student==null))
+			{
+				boolean value=  studentH.isUserStudent(student.getUsername());
+				if(value== true)
+				{
+					System.out.println(student.toString());
+				}
+			}
 
-	}
+
+			boolean value=  studentH.isUserStudent(student.getUsername());
+			if(value== true)
+			{
+				System.out.println(student.toString());
+			}
+
+		}
 	}
 
 
@@ -145,10 +148,10 @@ public class StudentUI {
 		if(isLoggedOn())
 		{
 			studentH.removeUniversity(student,uni);
-		
+
 		}
 	}
-		
+
 
 
 
@@ -157,8 +160,8 @@ public class StudentUI {
 		if(isLoggedOn())
 		{
 			studentH.saveUniversity(student, u);
-	
-}
-}
+
+		}
+	}
 }
 
