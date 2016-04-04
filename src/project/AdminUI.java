@@ -181,7 +181,7 @@ public class AdminUI {
 	}
 
 	/**
-	 * Adds an University to the universityHome
+	 * Adds a University to the universityHome
 	 * @param u University to be added
 	 */
 	public int addUniversity(University u)
@@ -205,7 +205,11 @@ public class AdminUI {
 		}
 		return univ;
 	}
-
+/**
+ * method to edit a specified university
+ * @param u university to be edited
+ * @return value of 1 if true
+ */
 	public int editUniversities(University u)
 	{
 		int value = -1;

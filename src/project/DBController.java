@@ -196,12 +196,21 @@ public class DBController {
 		return  univDBlib.user_saveSchool(user.getUsername(),uni);
 	}
 
-
+/**
+ * Method to delete the specified student.
+ * @param s student to be deleted
+ * @return s deleted student
+ */
 	public int deleteStudent(String s)
 	{
 		return univDBlib.user_deleteUser(s);
 	}
 
+	/**
+	 * Method to delete the specified admin.
+	 * @param a student to be deleted
+	 * @return a deleted admin
+	 */
 	public int deleteAdmin(String a)
 	{
 		return univDBlib.user_deleteUser(a);
