@@ -1,5 +1,6 @@
 package project;
 
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -10,15 +11,15 @@ public class DBControllerTest {
 	DBController dbl;
 	University uni;
 	Student student;
-	
+
 	@Before
 	public void setUp() throws Exception {
-		DBController dbl = new DBController("ardentdeve", "ardentdeve", "ajjw4");
+		dbl = new DBController();
 	}
 
 	@Test
 	public void testGetUniversities() {
-		
+
 	}
 
 	@Test
@@ -28,11 +29,97 @@ public class DBControllerTest {
 		assertEquals(1,dbl.addUniversity(uni));
 		dbl.deleteUniversity(uni);
 	}
-	
+
 	@Test
 	public void testAddStudent() {
 		student = new Student("Wes", "Dickhaus", "wesd1", "password1", 'u', 'Y');
 		assertEquals(1, dbl.addStudent(student));
 		dbl.deleteStudent("Wes");
 	}
+
+	@Test
+	public void testEditUniversity(){
+
+	}
+
+	@Test
+	public void testDeleteUniversity(){
+
+	}
+
+	@Test
+	public void testGetStudents(){
+
+	}
+
+	@Test
+	public void testGetSavedSchools(){
+
+	}
+
+	@Test
+	public void testGetAdmins(){
+
+	}
+
+	@Test
+	public void testRemoveSchool(){
+
+	}
+
+	@Test
+	public void testSaveSchool(){
+
+	}
+
+	@Test
+	public void testDeleteStudent(){
+
+	}
+
+	@Test
+	public void testDeleteAdmin(){
+
+	}
+
+	@Test
+	public void testAddUniversityEmphasis(){
+
+	}
+
+	@Test
+	public void testAddAdmin(){
+
+	}
+
+	@Test
+	public void testEditStudent(){
+
+	}
+
+	@Test
+	public void testEditAdmin(){
+
+	}
+
+	@Test
+	public void testIsUserAdmin(){
+
+	}
+
+	@Test
+	public void testIsUserStudent(){
+
+	}
+
+	@Test
+	public void testRemoveUniversityEmphasis(){
+
+	}
+
 }
+
+
+
+
+

@@ -18,7 +18,7 @@ public class DBController {
 	/** A variable of type UniversityDBLibrary */
 	private UniversityDBLibrary univDBlib;
 	/** A reference to University object */
-	private University Univeristy;
+	private University University;
 	/** an ArrayList of all the students */
 	private ArrayList<Student>allStudents;
 	/** an ArrayList of all admins */
@@ -31,8 +31,8 @@ public class DBController {
 	 * @param username username to access database
 	 * @param password password to access database
 	 */
-	public DBController(String db, String username, String password) {
-		univDBlib = new UniversityDBLibrary(db,username,password);
+	public DBController() {
+		univDBlib = new UniversityDBLibrary("ardentdeve", "ardentdeve", "ajjw4");
 	}
 
 	/**
