@@ -29,7 +29,7 @@ public class UniversityHome {
 	 * @param password the password used in the DBController constructor call
 	 */
 	public UniversityHome(String data, String username, String password){
-		dbl= new DBController(data,username,password);
+		dbl= new DBController();
 	}
 
 	/**

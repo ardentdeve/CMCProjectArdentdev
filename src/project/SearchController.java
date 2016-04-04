@@ -13,7 +13,7 @@ public class SearchController{
 	DBController dbl;
 
 	public  SearchController(String db, String username, String password){
-		dbl = new DBController(db,username,password);
+		dbl = new DBController();
 	}
 
 	public ArrayList<University> search(String name, String state, String location, String control ,int numberStudents, double pctFemale,

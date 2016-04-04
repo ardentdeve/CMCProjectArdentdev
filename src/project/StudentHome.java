@@ -35,7 +35,7 @@ public class StudentHome {
 
 	public StudentHome(String d, String username, String password) {
 		stu = null;
-		dbl = new DBController(d,username,password);
+		dbl = new DBController();
 	}
 
 	/**

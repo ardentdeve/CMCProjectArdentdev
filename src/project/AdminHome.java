@@ -36,7 +36,7 @@ public class AdminHome {
 	 * @param password password to set
 	 */
 	public AdminHome(String d, String username, String password) {
-		dbl = new DBController(d,username,password);
+		dbl = new DBController();
 		admin = null;
 	}
 
