@@ -158,7 +158,7 @@ public class StudentHome {
 		return dbl.editStudent(stu.getUsername(), firstname, lastname, password, stu.getType(), stu.getStatus());
 	}
 	/**
-	 * Check if the Student correpsonding to the specfied username is a student by 
+	 * Check if the Student corresponding to the specified username is a student by
 	 * calling the similar method in the DBController class
 	 */
 	public boolean isUserStudent(String username){

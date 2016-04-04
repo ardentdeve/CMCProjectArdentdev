@@ -36,6 +36,10 @@ public class StudentUI {
 		allStudents = new ArrayList<Student>();
 	}
 
+	/**
+	 * Method to check if the student is logged in.
+	 * @return boolean true if logged in
+	 */
 	public boolean isLoggedOn()
 	{
 		boolean result = false;
@@ -98,7 +102,12 @@ public class StudentUI {
 		}
 	}
 
-
+/**
+ * Method to editProfile of a specified student.
+ * @param firstname first name to edit
+ * @param lastname last name to edit
+ * @param password password to edit
+ */
 	public void editProfile(String firstname, String lastname, String password)
 	{
 		if(isLoggedOn())
@@ -107,7 +116,9 @@ public class StudentUI {
 			studentH.editProfile(firstname,lastname,password);
 		}
 	}
-
+/**
+ * Method that returns a specified students information.
+ */
 	public void getStudentInfo()
 	{
 		if(isLoggedOn())
@@ -131,7 +142,9 @@ public class StudentUI {
 		}
 	}
 
-
+/**
+ * Method to remove a university.
+ */
 	public void removeUniversity(String uni)
 	{
 		if(isLoggedOn())
@@ -143,7 +156,11 @@ public class StudentUI {
 
 
 
-
+/**
+ * Method to save a University.
+ * @param u university to save
+ * @return value of 1 if saved
+ */
 	public int saveUni(String u)
 	{
 		int value = -1;

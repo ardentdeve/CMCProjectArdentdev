@@ -73,7 +73,7 @@ public abstract class User {
 	}
 	
 	/**
-	 * returns the loginStatuc of this User
+	 * returns the loginStatus of this User
 	 * 
 	 * @return loginStatus
 	 */
