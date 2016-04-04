@@ -50,7 +50,7 @@ public class AdminUI {
 
 	/**
 	 * method to logOn as an admin
-	 * @param n name of Admin
+	 * @param n username of Admin
 	 * @param p password of Admin
 	 */
 	public boolean logOn(String n, String p)
