@@ -35,7 +35,10 @@ public class AdminUI {
 		uniH= new UniversityHome(n,us,p);
 		allAdmins = new ArrayList<Admin>();
 	}
-
+	/**
+	 * Method to check if the admin is logged in.
+	 * @return boolean true if logged in
+	 */
 	public boolean isLoggedOn()
 	{
 		boolean result = false;
@@ -178,7 +181,7 @@ public class AdminUI {
 	}
 
 	/**
-	 * Adds an University to the universityHome
+	 * Adds a University to the universityHome
 	 * @param u University to be added
 	 */
 	public int addUniversity(University u)
@@ -203,14 +206,18 @@ public class AdminUI {
 		return univ;
 	}
 
+	/**
+	 * method to edit a specified university
+	 * @param u university to be edited
+	 * @return value of 1 if true
+	 */
 	public int editUniversities(String name, String state, String location, String control, int numberStudents, double pctFemale, double satVerbal, double satMath, 
-			double expenses, double pctFinancialAid, int numberOfApplicants, double pctAdmitted, double pctEnrolled, int AcademicScale, int socialScale, int QualityOfLifeScale)
-	{
+			double expenses, double pctFinancialAid, int numberOfApplicants, double pctAdmitted, double pctEnrolled, int AcademicScale, int socialScale, int QualityOfLifeScale){
 		int value = -1;
 		if(isLoggedOn())
 		{
 			value = uniH.editUniversities(name, state, location, control, numberStudents, pctFemale, satVerbal, satMath, 
-					 expenses, pctFinancialAid, numberOfApplicants, pctAdmitted, pctEnrolled, AcademicScale, socialScale, QualityOfLifeScale);
+					expenses, pctFinancialAid, numberOfApplicants, pctAdmitted, pctEnrolled, AcademicScale, socialScale, QualityOfLifeScale);
 		}
 		return value;
 

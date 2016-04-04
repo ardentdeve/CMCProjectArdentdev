@@ -27,7 +27,7 @@ public class CMCDriver {
 		Student s = new Student("Mimi", "Kardashian", "MimiLuv", "mi1234", 'u', 'Y');
 		adminUI.addStudent(s);
 		Student editS = new Student("MimiN", "Kardashian", "MimiLuv", "mi1234", 'u', 'Y');
-		adminUI.editStudent(editS);
+		//adminUI.editStudent(editS);
 		adminUI.getStudents();
 		adminUI.getAdmins();
 		University tech = new University("Kanye West TECHNOLOGY ","Kanye City","BIG-CITY","PRIVATE",5000,50.0,800,800,800,22000.0,50,1000.5,25.0,70,4,4,"4");
