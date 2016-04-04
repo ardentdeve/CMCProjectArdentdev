@@ -81,7 +81,7 @@ public class Student extends User {
 	public String toString() {
 		return "Student [getFistName()=" + getFirstName() + ", getLastName()=" + getLastName() + ", getUsername()="
 				+ getUsername() + ", getPassword()=" + getPassword() + ", getType()=" + getType() + ", getStatus()="
-				+ getStatus() + "]";
+				+ getStatus() + "]\n";
 	}
 }
 

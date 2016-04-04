@@ -84,12 +84,11 @@ public class DBController {
 	 * @param u University to be edited
 	 * @return 1 if the school is successfully edited, -1 otherwise
 	 */
-	public int editUniversity(University u) {
-		return univDBlib.university_editUniversity(u.getName(),u.getState(),u.getLocation(),
-				u.getControl(), u.getNumberStudents(), u.getPctFemale(), 
-				u.getSatVerbal(), u.getSatMath(), u.getExpenses(), u.getPctFinancialAid(), 
-				u.getNumberOfApplicants(), u.getPctAdmitted(), u.getPctEnrolled(), u.getAcademicScale() , 
-				u.getSocialScale(), u.getQualityOfLifeScale());
+	public int editUniversity(String name, String state, String location, String control, int numberStudents, double pctFemale, double satVerbal, double satMath, 
+			double expenses, double pctFinancialAid, int numberOfApplicants, double pctAdmitted, double pctEnrolled, int AcademicScale, int socialScale, int QualityOfLifeScale) {
+		
+		return univDBlib.university_editUniversity(name, state, location, control, numberStudents, pctFemale, satVerbal, satMath, 
+			 expenses, pctFinancialAid, numberOfApplicants, pctAdmitted, pctEnrolled, AcademicScale, socialScale, QualityOfLifeScale);
 	}
 
 	/**
@@ -249,9 +248,8 @@ public class DBController {
 	 * @param student Student to be edited
 	 * @return true if the student is successfully edited
 	 */
-	public int editStudent(Student student) {
-		return univDBlib.user_editUser(student.getUsername(),student.getFirstName(),student.getLastName(), 
-				student.getPassword(), student.getType(), student.getStatus());
+	public int editStudent(String username, String firstName, String lastName, String password, char type, char status) {
+		return univDBlib.user_editUser(username, firstName, lastName, password, type, status);
 	}
 
 	/**
@@ -261,8 +259,8 @@ public class DBController {
 	 * @param admin admin to be edited
 	 * @return true if the admin is successfully edited
 	 */
-	public int editAdmin(Admin ad) {
-		return univDBlib.user_editUser(ad.getUsername(),ad.getFirstName(), ad.getLastName(), ad.getPassword(), ad.getType(), ad.getStatus());
+	public int editAdmin(String username, String firstName, String lastName, String password, char type, char status) {
+		return univDBlib.user_editUser(username, firstName, lastName, password, type, status);
 	}
 
 	/**
