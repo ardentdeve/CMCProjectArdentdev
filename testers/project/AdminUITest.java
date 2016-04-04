@@ -26,6 +26,7 @@ public class AdminUITest {
 		uh = new UniversityHome("ardentdeve","ardentdeve","ajjw4");
 		university = new University("name", "state", "location", "control", 1000, 50.0, 900, 900, 12000, 80.0, 2000,
 				70.0, 60.0, 4, 3, 5, "Math");
+		
 	}
 	
 	@Test
@@ -60,6 +61,7 @@ public class AdminUITest {
 	@Test
 	public void testAddStudent(){
 		aui.logOn("Rahal", "Imad");
+		Student student = new Student("Jacob", "Hinnenkamp", "jacob6", "hello", 'u', 'Y');
 		assertEquals(1, aui.addStudent(student));
 		sh.deleteStudent(student);
 	}
@@ -67,6 +69,7 @@ public class AdminUITest {
 	@Test
 	public void testAddAdmin(){
 		aui.logOn("Rahal", "Imad");
+		Admin admin = new Admin("Jacob", "Hinnenkamp", "jacob6", "hello", 'a', 'Y');
 		assertEquals(1, aui.addAdmin(admin));
 		ah.deleteAdmin(admin);
 	}
@@ -74,13 +77,17 @@ public class AdminUITest {
 	@Test
 	public void testDeactivateUser(){
 		aui.logOn("Rahal", "Imad");
-		assertEquals(1, aui.deactivateUser("nicoleK"));
-		ah.ActivateUser("nicoleK");
+		Student student = new Student("Andrew1", "Wiggins", "Apple21", "watzpoppin", 'u', 'Y');
+		aui.addStudent(student);
+		assertEquals(1, aui.deactivateUser(student));
+		sh.deleteStudent(student);
 	}
 	
 	@Test
 	public void testAddUniversity(){
 		aui.logOn("Rahal", "Imad");
+		university = new University("Swag U2", "Albaman", "City", "PRIVATE", 
+				5000,50.0,800,700,800,24000.0,50,1000.5,25.0,70,4,4,"4");
 		assertEquals(1, aui.addUniversity(university));
 		uh.deleteUniversities(university);
 	}
@@ -124,24 +131,29 @@ public class AdminUITest {
 	@Test
 	public void testEditStudent(){
 		aui.logOn("Rahal", "Imad");
-		aui.addStudent(student);
-		assertEquals(1, aui.editStudent(student));
+		Student student = new Student("Jacob", "Hinnenkamp", "jacob4", "hello", 'a', 'Y');
+		sh.addStudent(student);
+		assertEquals(1,ah.editStudent("jacob4", "Jacob", "Hinnenkamp", "goodbye", 'a', 'Y'));
 		sh.deleteStudent(student);
 	}
 
 	@Test
 	public void testEditAdmin(){
 		aui.logOn("Rahal", "Imad");
+		Admin admin = new Admin("Jacob", "Hinnenkamp", "jacob4", "hello", 'a', 'Y');
 		aui.addAdmin(admin);
-		assertEquals(1, aui.editAdmin(admin));
+		assertEquals(1,ah.editAdmin("jacob4", "Jacob", "Hinnenkamp", "goodbye", 'a', 'Y'));
 		ah.deleteAdmin(admin);
 	}
 	
 	@Test
 	public void testEditUniversities(){
 		aui.logOn("Rahal", "Imad");
+		university = new University("Swag University", "Albaman", "City", "PRIVATE", 
+				5000,50.0,800,700,800,24000.0,50,1000.5,25.0,70,4,4,"4");
 		aui.addUniversity(university);
-		assertEquals(1, aui.editUniversities(university));
+		assertEquals(1, aui.editUniversities("Swag University", "Alabama", "Rural", "PRIVATE", 
+				4000,50.0,800,700,800,24000.0,50,1000.5,25.0,70,4,4));
 		uh.deleteUniversities(university);
 	}
 

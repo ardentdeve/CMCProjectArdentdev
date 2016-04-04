@@ -112,30 +112,8 @@ public class AdminHome {
 	 * @param username username to be deactivated
 	 */
 
-	public int DeactivateUser(String username)
-	{
-		allStudents= dbl.getStudents();
-		int value = -1;
-		if(this.isUserAdmin(username))
-		{
-			Admin adminS = findAdmin(username);
-			adminS = new Admin(adminS.getFirstName(),adminS.getLastName(),adminS.getUsername(), adminS.getPassword(),adminS.getType(),'N');
-			value = this.editAdmin(adminS);
-		}
-		else if(this.isUserStudent(username))
-		{
-			for(Student s :allStudents) 
-			{
-				if(s.getUsername().equals(username))
-				{
-					student = s;
-					student = new Student(student.getFirstName(),student.getLastName(),student.getUsername(), student.getPassword(),student.getType(),'N');
-					value = this.editStudent(student);
-				}
-			}
-
-		}
-		return value;
+	public int deactivateUser(Student student){
+	   return dbl.editStudent(student.getUsername() , student.getFirstName(), student.getLastName(), student.getPassword(), student.getType(), 'N');
 	}
 
 	
@@ -145,30 +123,9 @@ public class AdminHome {
 	 * @param username username to be deactivated
 	 */
 	
-	public int ActivateUser(String username)
-	{
-		allStudents= dbl.getStudents();
-		int value = -1;
-		if(this.isUserAdmin(username))
-		{
-			Admin adminS = findAdmin(username);
-			adminS = new Admin(adminS.getFirstName(),adminS.getLastName(),adminS.getUsername(), adminS.getPassword(),adminS.getType(),'Y');
-			value = this.editAdmin(adminS);
-		}
-		else if(this.isUserStudent(username))
-		{
-			for(Student s :allStudents) 
-			{
-				if(s.getUsername().equals(username))
-				{
-					student = s;
-					student = new Student(student.getFirstName(),student.getLastName(),student.getUsername(), student.getPassword(),student.getType(),'Y');
-					value = this.editStudent(student);
-				}
-			}
+	public int activateUser(Student student){
+		return dbl.editStudent(student.getUsername() , student.getFirstName(), student.getLastName(), student.getPassword(), student.getType(), 'Y');
 
-		}
-		return value;
 	}
 
 
@@ -188,8 +145,8 @@ public class AdminHome {
 	 * @return the edited student information
 	 */
 
-	public int editStudent(Student s){
-		return dbl.editStudent(s);
+	public int editStudent(String username, String firstName, String lastName, String password, char type, char status){
+		return dbl.editStudent(username, firstName, lastName, password, type, status);
 	}
 
 	/**
@@ -206,13 +163,13 @@ public class AdminHome {
 	 * @param admin admin to be edited
 	 * @return the edited Admin information
 	 */
-	public int editAdmin(Admin admin)
+	public int editAdmin(String username, String firstName, String lastName, String password, char type, char status)
 	{
-		return dbl.editAdmin(admin);
+		return dbl.editAdmin(username, firstName, lastName, password, type, status);
 	}
 
 /**
- * Deletes an admin the is currently in teh adminHome
+ * Deletes an admin the is currently in the adminHome
  * @param a admin to be deleted
  * @return the deleted admin
  */

@@ -29,7 +29,7 @@ public class DBControllerTest {
 
 	@Test
 	public void testGetUniversities() {
-		assertEquals(195, dbl.getUniversities().size());
+		assertEquals(196, dbl.getUniversities().size());
 	}
 
 	@Test
@@ -67,7 +67,7 @@ public class DBControllerTest {
 
 	@Test
 	public void testGetStudents(){
-		assertEquals(14,dbl.getStudents().size());
+		assertEquals(15,dbl.getStudents().size());
 	}
 
 	@Test

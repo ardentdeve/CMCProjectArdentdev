@@ -31,10 +31,9 @@ public class UniversityHomeTester {
 	public void testEditUniversities(){
 		University univ = new University("Missipii International", "Missippi", "URBAN", "PRIVATE", 
 				5000,50.0,800,800,800,22000.0,50,1000.5,25.0,70,4,4,"4");
-		assertEquals(1,univh.addUniversityToList(univ));
-		univ = new University("Missipii International", "Houston", "City", "PRIVATE", 
-				5000,50.0,800,800,800,22000.0,50,1000.5,25.0,70,4,4,"4");
-		assertEquals(1,univh.editUniversities(univ));
+		univh.addUniversityToList(univ);
+		assertEquals(1,univh.editUniversities("Missipii International", "Missippi", "URBAN", "PRIVATE", 
+				6000,50.0,800,800,800,22000.0,50,1000.5,25.0,70,4,4));
 		univh.deleteUniversities(univ);
 	}
 	@Test
@@ -46,14 +45,5 @@ public class UniversityHomeTester {
 		univh.deleteUniversityEmphasis(univ,"Medicine");
 		univh.deleteUniversities(univ);
 		
-	}
-	
-	
-	
-	
-
-	
-	
-	
-	
+	}	
 }

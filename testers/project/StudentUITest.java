@@ -65,9 +65,12 @@ public class StudentUITest {
 	@Test
 	public void testsaveUni(){
 		sui.logOn("AW2", "watzpoppin");
-		aui.addUniversity(university);
-		assertEquals(1, sui.saveUni(university.getName()));
-		uh.deleteUniversities(university);
+		University university1 = new University("name3", "state", "location", "control", 1000, 50.0, 900, 900, 12000, 80.0, 2000,
+				70.0, 60.0, 4, 3, 5, "Math");
+		aui.addUniversity(university1);
+		assertEquals(1, sui.saveUni(university1.getName()));
+		sui.removeUniversity(university1.getName());
+		uh.deleteUniversities(university1);
 
 	}
 	

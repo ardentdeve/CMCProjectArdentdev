@@ -29,8 +29,8 @@ public class StudentHome {
 	 * Constructor.
 	 * 
 	 * @param d database
-	 * @param username username to set
-	 * @param password password to set
+	 * @param username username
+	 * @param password password
 	 */
 
 	public StudentHome(String d, String username, String password) {
@@ -60,13 +60,13 @@ public class StudentHome {
 			}    
 		}
 		return stu;	
-		
-}
+
+	}
 	public int deleteStudent(Student s)
 	{
 		return dbl.deleteStudent(s.getUsername());
 	}
-	
+
 	/**
 	 * searches the allStudents list in this class for a student of the specified 
 	 * username and returns it if found.
@@ -113,7 +113,7 @@ public class StudentHome {
 	 * @param school the name of the school to remove
 	 * @return 1 if the remove succeeded and -1 otherwise
 	 */
-	
+
 	public int removeUniversity(Student s, String school)
 	{
 		return dbl.removeSchool(s.getUsername(), school);
@@ -136,11 +136,11 @@ public class StudentHome {
 			throw new IllegalArgumentException("Invalid login Info");}
 		else
 		{
-		ArrayList<University> savedSchool= dbl.getSavedSchool(stu.getUsername());
-		stu.setSavedUni(savedSchool);
-		ArrayList<University> uniLists = stu.getSavedUniversity();
-		return uniLists;
-	}
+			ArrayList<University> savedSchool= dbl.getSavedSchool(stu.getUsername());
+			stu.setSavedUni(savedSchool);
+			ArrayList<University> uniLists = stu.getSavedUniversity();
+			return uniLists;
+		}
 	}
 	/**
 	 * Creates a Student with the specified information and calls editStudent from 
@@ -153,13 +153,10 @@ public class StudentHome {
 	 * @return the result of the editStudent method from the DBController
 	 */
 	public int editProfile(String firstname, String lastname, String password) {
-		if(stu == null){
-			throw new IllegalArgumentException("Invalid login Info");}
-		else{
-		stu = new Student(firstname,lastname,stu.getUsername(), password,stu.getType(),stu.getStatus());
-		}return dbl.editStudent(stu);
-
-			}
+		if(stu == null)
+			throw new IllegalArgumentException("Invalid login Info");
+		return dbl.editStudent(stu.getUsername(), firstname, lastname, password, stu.getType(), stu.getStatus());
+	}
 	/**
 	 * Check if the Student correpsonding to the specfied username is a student by 
 	 * calling the similar method in the DBController class

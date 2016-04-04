@@ -111,11 +111,11 @@ public class AdminUI {
 	 * 
 	 * @param u the Student to deactivate
 	 */
-	public int deactivateUser(String username){
+	public int deactivateUser(Student student){
 		int value = -1;
 		if(isLoggedOn())
 		{
-			value = adminH.DeactivateUser(username);
+			value = adminH.deactivateUser(student);
 		}
 		return value;
 	}
@@ -126,12 +126,12 @@ public class AdminUI {
 	 * @return 
 	 * @return the edited student's information
 	 */
-	public int editStudent(Student s)
+	public int editStudent(String username, String firstName, String lastName, String password, char type, char status)
 	{
 		int value =-1;
 		if(isLoggedOn())
 		{
-			value = adminH.editStudent(s);
+			value = adminH.editStudent(username, firstName, lastName, password, type, status);
 		}
 		return value;
 	}
@@ -141,12 +141,12 @@ public class AdminUI {
 	 * @return 
 	 * @return the edited admins information
 	 */
-	public int editAdmin(Admin a)
+	public int editAdmin(String username, String firstName, String lastName, String password, char type, char status)
 	{
 		int value =-1;
 		if(isLoggedOn())
 		{
-			value = adminH.editAdmin(a);
+			value = adminH.editAdmin(username, firstName, lastName, password, type, status);
 		}
 		return value;
 	}
@@ -203,12 +203,14 @@ public class AdminUI {
 		return univ;
 	}
 
-	public int editUniversities(University u)
+	public int editUniversities(String name, String state, String location, String control, int numberStudents, double pctFemale, double satVerbal, double satMath, 
+			double expenses, double pctFinancialAid, int numberOfApplicants, double pctAdmitted, double pctEnrolled, int AcademicScale, int socialScale, int QualityOfLifeScale)
 	{
 		int value = -1;
 		if(isLoggedOn())
 		{
-			value = uniH.editUniversities(u);
+			value = uniH.editUniversities(name, state, location, control, numberStudents, pctFemale, satVerbal, satMath, 
+					 expenses, pctFinancialAid, numberOfApplicants, pctAdmitted, pctEnrolled, AcademicScale, socialScale, QualityOfLifeScale);
 		}
 		return value;
 

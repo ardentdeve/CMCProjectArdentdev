@@ -51,8 +51,10 @@ public class UniversityHome {
 	/**
 	 * Edits the specified Universities information using the DBController class
 	 */
-	public int editUniversities(University u) {
-		return dbl.editUniversity(u);
+	public int editUniversities(String name, String state, String location, String control, int numberStudents, double pctFemale, double satVerbal, double satMath, 
+			double expenses, double pctFinancialAid, int numberOfApplicants, double pctAdmitted, double pctEnrolled, int AcademicScale, int socialScale, int QualityOfLifeScale) {
+		return dbl.editUniversity(name, state, location, control, numberStudents, pctFemale, satVerbal, satMath, 
+				 expenses, pctFinancialAid, numberOfApplicants, pctAdmitted, pctEnrolled, AcademicScale, socialScale, QualityOfLifeScale);
 	}
 
 	/**

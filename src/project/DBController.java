@@ -84,8 +84,10 @@ public class DBController {
 	 * @param u University to be edited
 	 * @return 1 if the school is successfully edited, -1 otherwise
 	 */
-	public int editUniversity(String name, String state, String location, String control, int numberStudents, double pctFemale, double satVerbal, double satMath, 
-			double expenses, double pctFinancialAid, int numberOfApplicants, double pctAdmitted, double pctEnrolled, int AcademicScale, int socialScale, int QualityOfLifeScale) {
+	public int editUniversity(String name, String state, String location, String control, int numberStudents, 
+			double pctFemale, double satVerbal, double satMath, double expenses, double pctFinancialAid, 
+			int numberOfApplicants, double pctAdmitted, double pctEnrolled, int AcademicScale, int socialScale, 
+			int QualityOfLifeScale) {
 		
 		return univDBlib.university_editUniversity(name, state, location, control, numberStudents, pctFemale, satVerbal, satMath, 
 			 expenses, pctFinancialAid, numberOfApplicants, pctAdmitted, pctEnrolled, AcademicScale, socialScale, QualityOfLifeScale);
@@ -150,7 +152,8 @@ public class DBController {
 		ArrayList<Admin> listAdmin= new ArrayList<Admin>();
 		for(int i=0;i< arrayUser.length;i++) {
 			if(arrayUser[i][4].charAt(0)== 'a') {
-				listAdmin.add(new Admin(arrayUser[i][0],arrayUser[i][1],arrayUser[i][2],arrayUser[i][3],arrayUser[i][4].charAt(0),arrayUser[i][5].charAt(0)));
+				listAdmin.add(new Admin(arrayUser[i][0],arrayUser[i][1],arrayUser[i][2],
+						arrayUser[i][3],arrayUser[i][4].charAt(0),arrayUser[i][5].charAt(0)));
 			}
 		}
 		return listAdmin;
