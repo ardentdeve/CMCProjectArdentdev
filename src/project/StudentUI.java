@@ -144,13 +144,15 @@ public class StudentUI {
 
 
 
-	public void  saveUni(String u)
+	public int saveUni(String u)
 	{
+		int value = -1;
 		if(isLoggedOn())
 		{
-			studentH.saveUniversity(student, u);
+			value = studentH.saveUniversity(student, u);
 
 		}
+		return value;
 	}
 }
 
