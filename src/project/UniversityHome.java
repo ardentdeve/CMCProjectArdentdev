@@ -42,10 +42,10 @@ public class UniversityHome {
 	}
 
 	/** 
-	 * Sets the universities list to the list of Universities in the database
+	 * Returns a list of all Universitites in the database
 	 */
-	public void getUniversities(){ 
-		universities = dbl.getUniversities();
+	public ArrayList<University> getUniversities(){ 
+		return dbl.getUniversities();
 	}
 
 	/**

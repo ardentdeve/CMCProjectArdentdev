@@ -220,12 +220,9 @@ public class AdminHome {
 	 * prints out all of the admins in the AdminHome
 	 * @return all admins
 	 */
-	public void getAdmins(){
-		allAdmins = dbl.getAdmins();
-		for(Admin ad : allAdmins)
-		{
-			System.out.println(ad);
-		}
+	public ArrayList<Admin> getAdmins(){
+		return dbl.getAdmins();
+		
 	}
 
 	/**
@@ -233,13 +230,10 @@ public class AdminHome {
 	 * @return all students
 	 */
 
-	public void getStudents()
+	public ArrayList<Student> getStudents()
 	{
-		allStudents = dbl.getStudents();
-		for(Student s : allStudents)
-		{
-			System.out.println(s);
-		}
+		return dbl.getStudents();
+		
 	}
 
 	/**

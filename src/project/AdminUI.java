@@ -35,13 +35,14 @@ public class AdminUI {
 		uniH= new UniversityHome(n,us,p);
 		allAdmins = new ArrayList<Admin>();
 	}
+
 	public boolean isLoggedOn()
 	{
 		boolean result = false;
-	
-		  if(admin != null)
+
+		if(admin != null)
 		{
-		 
+
 			result = true;
 		}
 		return result;
@@ -64,7 +65,7 @@ public class AdminUI {
 			return true;
 		}
 	}
-	
+
 
 	/**
 	 * method to logOff as an Admin
@@ -73,8 +74,8 @@ public class AdminUI {
 	{
 		if(isLoggedOn())
 		{
-		adminH.logoff();
-	}
+			adminH.logoff();
+		}
 	}
 
 	/**
@@ -86,8 +87,8 @@ public class AdminUI {
 		int value = -1;
 		if(isLoggedOn())
 		{
-		value = adminH.addStudent(s);
-	}
+			value = adminH.addStudent(s);
+		}
 		return value;
 	}
 
@@ -100,8 +101,8 @@ public class AdminUI {
 		int value = -1;
 		if(isLoggedOn())
 		{
-		value = adminH.addAdmin(a);
-	}
+			value = adminH.addAdmin(a);
+		}
 		return value;
 	}
 
@@ -114,8 +115,8 @@ public class AdminUI {
 		int value = -1;
 		if(isLoggedOn())
 		{
-		value = adminH.DeactivateUser(username);
-	}
+			value = adminH.DeactivateUser(username);
+		}
 		return value;
 	}
 
@@ -129,9 +130,9 @@ public class AdminUI {
 	{
 		int value =-1;
 		if(isLoggedOn())
-			{
+		{
 			value = adminH.editStudent(s);
-			}
+		}
 		return value;
 	}
 	/**
@@ -153,23 +154,27 @@ public class AdminUI {
 	/**
 	 * Calls studentHome to get all Students
 	 */
-	public void getStudents()
+	public ArrayList<Student> getStudents()
 	{
+		ArrayList<Student> stu = null;
 		if(isLoggedOn())
 		{
-		adminH.getStudents();
-	}
+			stu = adminH.getStudents();
+		}
+		return stu;
 	}
 
 	/**
 	 * Calls adminHome to get all Admins
 	 */
-	public void getAdmins()
+	public ArrayList<Admin> getAdmins()
 	{
+		ArrayList<Admin> admin = null;
 		if(isLoggedOn())
 		{
-		adminH.getAdmins();
-	}
+			admin = adminH.getAdmins();
+		}
+		return admin;
 	}
 
 	/**
@@ -181,21 +186,23 @@ public class AdminUI {
 		int value = -1;
 		if(isLoggedOn())
 		{
-		value = uniH.addUniversityToList(u);
-	}
+			value = uniH.addUniversityToList(u);
+		}
 		return value;
 	}
 
 	/**
 	 * Calls universityHome to get all Universities
 	 */
-	public void getUniversities(){
+	public ArrayList<University> getUniversities(){
+		ArrayList<University> univ = null;
 		if(isLoggedOn())
 		{
-		uniH.getUniversities();
+			univ = uniH.getUniversities();
+		}
+		return univ;
 	}
-}
-	
+
 	public int editUniversities(University u)
 	{
 		int value = -1;
@@ -204,8 +211,8 @@ public class AdminUI {
 			value = uniH.editUniversities(u);
 		}
 		return value;
-	
-}
+
+	}
 }
 
 
