@@ -47,7 +47,7 @@ public class University {
 	/** a 1 to 5 scale of quality of life of the University*/
 	private int qualityOfLifeScale;
 	/** a list of emphases that the college is admired for*/
-	private String emphases;
+	private ArrayList<String> emphases;
 	/** a list of Universities with similar qualities*/
 	private List<University> similarUniversities;
 
@@ -75,7 +75,7 @@ public class University {
 	 */
 	public University(String name, String state, String location, String control ,int numberStudents, double pctFemale,
 			int satVerbal, int satMath, int expenses, double pctFinancialAid, int numberOfApplicants,
-			double pctAdmitted, double pctEnrolled, int academicScale, int socialScale, int qualityOfLifeScale, String emphases) {
+			double pctAdmitted, double pctEnrolled, int academicScale, int socialScale, int qualityOfLifeScale,ArrayList<String>emphases) {
 		super();
 		this.name = name;
 		this.state = state;
@@ -118,7 +118,7 @@ public class University {
 	 */
 	public void setUniversity(String name, String state, String location, String control ,int numberStudents, double pctFemale,
 			int satVerbal, int satMath, int expenses, double pctFinancialAid, int numberOfApplicants,
-			double pctAdmitted, double pctEnrolled, int academicScale, int socialScale, int qualityOfLifeScale, String emphases) {		
+			double pctAdmitted, double pctEnrolled, int academicScale, int socialScale, int qualityOfLifeScale, ArrayList<String> emphases) {		
 		this.name = name;
 		this.state = state;
 		this.location = location;
@@ -287,7 +287,7 @@ public class University {
 	 * 
 	 * @return the emphases
 	 */
-	public String getEmphases() {
+	public ArrayList<String >getEmphases() {
 		return emphases;
 	}
 	
@@ -307,6 +307,7 @@ public class University {
 	 */
 	@Override
 	public String toString() {
+
 		return "University [name=" + name + ", state=" + state + ", location=" + location + ", control=" + control
 				+ ", numberStudents=" + numberStudents + ", pctFemale=" + pctFemale + ", satVerbal=" + satVerbal
 				+ ", satMath=" + satMath + ", expenses=" + expenses + ", pctFinancialAid=" + pctFinancialAid

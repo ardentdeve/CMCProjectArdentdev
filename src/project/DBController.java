@@ -56,11 +56,11 @@ public class DBController {
 		for(int i=0;i< arrayUni.length;i++) {
 			listUniversities.add(new University(arrayUni[i][0],arrayUni[i][1],arrayUni[i][2],arrayUni[i][3], 
 					Integer.parseInt(arrayUni[i][4]),Double.parseDouble(arrayUni[i][5]), 
-					Integer.parseInt(arrayUni[i][6]),Integer.parseInt(arrayUni[i][6]),
-					Integer.parseInt(arrayUni[i][7]),Integer.parseInt(arrayUni[i][8]), 
-					Integer.parseInt(arrayUni[i][9]),Double.parseDouble(arrayUni[i][10]),
-					Double.parseDouble(arrayUni[i][11]),Integer.parseInt(arrayUni[i][12]),
-					Integer.parseInt(arrayUni[i][13]), Integer.parseInt(arrayUni[i][14]), arrayUni[i][15]));
+					Integer.parseInt(arrayUni[i][6]),Integer.parseInt(arrayUni[i][7]),
+					Integer.parseInt(arrayUni[i][8]),Integer.parseInt(arrayUni[i][9]), 
+					Integer.parseInt(arrayUni[i][10]),Double.parseDouble(arrayUni[i][11]),
+					Double.parseDouble(arrayUni[i][12]),Integer.parseInt(arrayUni[i][13]),
+					Integer.parseInt(arrayUni[i][14]), Integer.parseInt(arrayUni[i][15]),this.getEmphasis(arrayUni[i][0])));
 		}
 		return listUniversities;
 	}
@@ -77,7 +77,7 @@ public class DBController {
 				u.getExpenses(), u.getPctFinancialAid(), u.getNumberOfApplicants(),u.getPctAdmitted(), 
 				u.getPctEnrolled(),u.getAcademicScale() , u.getSocialScale(), u.getQualityOfLifeScale());
 	}
-
+	
 	/**
 	 * Updates the university record for the University specified as a parameter
 	 * 
@@ -139,6 +139,19 @@ public class DBController {
 			}
 		}
 		return savedUni;
+	}
+	
+	
+	public ArrayList<String> getEmphasis(String university) {
+		String[][] arrayUni= univDBlib.university_getNamesWithEmphases();
+		ArrayList<String> emphasisList= new ArrayList<String>();
+		for (int i = 0; i < arrayUni.length; ++i) {
+			if(arrayUni[i][0].equals(university)) {
+				String emphasis = arrayUni[i][1];
+				emphasisList.add(emphasis);
+				}
+			}
+		return emphasisList;
 	}
 
 	/**

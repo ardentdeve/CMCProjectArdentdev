@@ -12,15 +12,15 @@ public class CMCDriver {
 
 
 	public static void main(String[] args) {
-		
-		 SearchController searchCh = new SearchController();
-		 University tech = new University("Kanye West TECHNOLOGY ","Kanye City","BIG-CITY","PRIVATE",5000,50.0,800,800,800,22000.0,50,1000.5,25.0,70,4,4,"4");
-       ArrayList<University>uni= searchCh.search("Kanye West TECHNOLOGY ","Kanye City","BIG-CITY","PRIVATE",5000,50.0,800);
-       for(University u : uni)
-	   {
-		  System.out.println(u);
-	   }
-        /**
+
+		SearchController searchCh = new SearchController();
+		University tech = new University("Kanye West TECHNOLOGY ","Kanye City","BIG-CITY","PRIVATE",5000,50.0,800,800,800,22000.0,50,1000.5,25.0,70,4,4,null);
+		ArrayList<University>uni= searchCh.search("ABILENE CHRISTIAN UNIVERSITY","TEXAS","SUBURBAN","PRIVATE",10000,50,-1,-1.0,12088,70,4000,90,80,2,3,3,null);
+		for(University u : uni)
+		{
+			System.out.println(u);
+		}
+		/**
 		System.out.println(studentUI.logOn("nicoleK", "Ash1234"));
 		studentUI.getStudentInfo();
 		studentUI.getSavedUniversity();
@@ -38,7 +38,7 @@ public class CMCDriver {
 		University tech = new University("Kanye West TECHNOLOGY ","Kanye City","BIG-CITY","PRIVATE",5000,50.0,800,800,800,22000.0,50,1000.5,25.0,70,4,4,"4");
 		adminUI.addUniversity(tech);
 		adminUI.logOff();
-**/
+		 **/
 
 
 
