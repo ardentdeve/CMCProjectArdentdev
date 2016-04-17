@@ -19,24 +19,13 @@ public class StudentHome {
 	/** An arrayList containing all of the students*/
 	private ArrayList<Student>allStudents;
 	/** Reference to the DBController*/
-	private DBController dbl;
+	private DBController dbl = new DBController();
 	/** Reference to Student object */
 	private Student stu;
 	/** Reference to the StudentUI */
 	private StudentUI studentUI;
-
-	/**
-	 * Constructor.
-	 * 
-	 * @param d database
-	 * @param username username
-	 * @param password password
-	 */
-
-	public StudentHome(String d, String username, String password) {
-		stu = null;
-		dbl = new DBController();
-	}
+	
+	
 
 	/**
 	 * Takes a Student's username and password and confirms they are a Student. Then finds the Student
@@ -48,23 +37,39 @@ public class StudentHome {
 	 * @return the student that is logged in
 	 */
 
-	public Student login(String username, String password)
+	public int login(String username, String password)
 	{
-		boolean result = this.isUserStudent(username);
-		if(result) {
-			Student student = this.findByUsername(username);
+		
+		int status = -3;
+		try{
+		if(this.isUserStudent(username))
+		{
+			status = -2; 
+			stu= this.findByUsername(username);
+			if(stu.getPassword().equals(password))
+			{
+				status = 0;
+		
+				this.stu.setLoginStatus(true);
 
-			if(student.getPassword().equals(password)) {
-				stu = student;
-				student.setLoginStatus(true);
-			}    
+			}
+
 		}
-		return stu;	
-
+          return status;
 	}
+	catch(Exception e)
+	{
+		return status;
+	}
+}
 	public int deleteStudent(Student s)
 	{
 		return dbl.deleteStudent(s.getUsername());
+	}
+	
+	public Student getUser()
+	{
+		return this.stu;
 	}
 
 	/**
@@ -97,14 +102,15 @@ public class StudentHome {
 		stu.setLoginStatus(false);
 		stu = null;
 	}
+	
 
 	/**
 	 * Adds a student to the allStudents list
 	 * 
 	 * @param student
 	 */
-	public void addStudent(Student student) {
-		dbl.addStudent(student);
+	public int addStudent(Student student) {
+		return dbl.addStudent(student);
 	}
 
 	/**
@@ -114,9 +120,9 @@ public class StudentHome {
 	 * @return 1 if the remove succeeded and -1 otherwise
 	 */
 
-	public int removeUniversity(Student s, String school)
+	public int removeUniversity(String school)
 	{
-		return dbl.removeSchool(s.getUsername(), school);
+		return dbl.removeSchool(stu.getUsername(), school);
 
 	}
 
@@ -124,24 +130,19 @@ public class StudentHome {
 	 * Saves the the University correpsonding to the specified school name to the specified 
 	 * Student's saved schools
 	 */
-	public int saveUniversity(Student student,String school) {
-		return dbl.saveSchool(student, school);
+	public int saveUniversity(String school) {
+		return dbl.saveSchool(stu,school);
 	}
 
 	/**
 	 * prints the saved schools of the current students saved schools list
 	 */
 	public ArrayList<University> getSavedUniversity() {
-		if(stu==null){
-			throw new IllegalArgumentException("Invalid login Info");}
-		else
-		{
 			ArrayList<University> savedSchool= dbl.getSavedSchool(stu.getUsername());
 			stu.setSavedUni(savedSchool);
 			ArrayList<University> uniLists = stu.getSavedUniversity();
 			return uniLists;
 		}
-	}
 	/**
 	 * Creates a Student with the specified information and calls editStudent from 
 	 * the DBController class
@@ -153,8 +154,6 @@ public class StudentHome {
 	 * @return the result of the editStudent method from the DBController
 	 */
 	public int editProfile(String firstname, String lastname, String password) {
-		if(stu == null)
-			throw new IllegalArgumentException("Invalid login Info");
 		return dbl.editStudent(stu.getUsername(), firstname, lastname, password, stu.getType(), stu.getStatus());
 	}
 	/**

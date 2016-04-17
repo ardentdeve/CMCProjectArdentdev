@@ -119,6 +119,7 @@ public class DBController {
 		}
 		return listStudent;
 	}
+	
 
 	/**
 	 * Returns the saved schools of a Student with the specified username
@@ -284,7 +285,7 @@ public class DBController {
 	 * @param admin admin to be edited
 	 * @return true if the admin is successfully edited
 	 */
-	public int editAdmin(String username, String firstName, String lastName, String password, char type, char status) {
+	public int editAdmin(String username, String firstName, String lastName, String password, char type,char status) {
 		return univDBlib.user_editUser(username, firstName, lastName, password, type, status);
 	}
 

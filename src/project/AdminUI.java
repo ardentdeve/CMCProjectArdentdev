@@ -13,7 +13,8 @@ import java.util.ArrayList;
  */
 public class AdminUI {
 	/** Reference to adminHome object */
-	private AdminHome adminH;
+	private AdminHome adminH = new AdminHome();
+	private StudentHome studentH = new StudentHome();
 	/** Reference to admin object */
 	private Admin admin;
 	/** Reference to student object */
@@ -23,50 +24,17 @@ public class AdminUI {
 	/** Reference to UniversityHome object */
 	private UniversityHome uniH;
 
-	/**
-	 * Constructor.
-	 * @param n name to set
-	 * @param us username to set
-	 * @param p password to set
-	 */
-	public AdminUI(String n ,String us, String p){
-		admin = new Admin();
-		adminH= new AdminHome(n,us,p);
-		uniH= new UniversityHome(n,us,p);
-		allAdmins = new ArrayList<Admin>();
-	}
-/**
- * Method to check if the admin is logged in.
- * @return boolean true if logged in
- */
-	public boolean isLoggedOn()
-	{
-		boolean result = false;
 
-		if(admin != null)
-		{
 
-			result = true;
-		}
-		return result;
-	}
 
 	/**
 	 * method to logOn as an admin
 	 * @param n username of Admin
 	 * @param p password of Admin
 	 */
-	public boolean logOn(String n, String p)
+	public int logOn(String n, String p)
 	{
-		admin = adminH.login(n, p);
-		if(admin==null)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
+		 return adminH.login(n, p);
 	}
 
 
@@ -75,10 +43,7 @@ public class AdminUI {
 	 */
 	public void logOff()
 	{
-		if(isLoggedOn())
-		{
-			adminH.logoff();
-		}
+		adminH.logoff();
 	}
 
 	/**
@@ -87,12 +52,8 @@ public class AdminUI {
 	 */
 	public int addStudent(Student s)
 	{
-		int value = -1;
-		if(isLoggedOn())
-		{
-			value = adminH.addStudent(s);
-		}
-		return value;
+		return adminH.addStudent(s);
+		
 	}
 
 	/**
@@ -101,12 +62,8 @@ public class AdminUI {
 	 */
 	public int addAdmin(Admin a)
 	{
-		int value = -1;
-		if(isLoggedOn())
-		{
-			value = adminH.addAdmin(a);
-		}
-		return value;
+		return adminH.addAdmin(a);
+		
 	}
 
 	/**
@@ -115,12 +72,14 @@ public class AdminUI {
 	 * @param u the Student to deactivate
 	 */
 	public int deactivateUser(Student student){
-		int value = -1;
-		if(isLoggedOn())
-		{
-			value = adminH.deactivateUser(student);
-		}
-		return value;
+		return  adminH.deactivateUser(student);
+		
+	}
+	
+	
+	public int activateUser(Student student){
+		return  adminH.activateUser(student);
+		
 	}
 
 	/**
@@ -129,14 +88,11 @@ public class AdminUI {
 	 * @return 
 	 * @return the edited student's information
 	 */
-	public int editStudent(String username, String firstName, String lastName, String password, char type, char status)
+	public int editStudent(Student student)
 	{
-		int value =-1;
-		if(isLoggedOn())
-		{
-			value = adminH.editStudent(username, firstName, lastName, password, type, status);
-		}
-		return value;
+		
+			return adminH.editStudent(student);
+		
 	}
 	/**
 	 * Edits a specific admin in the adminHome
@@ -144,14 +100,11 @@ public class AdminUI {
 	 * @return 
 	 * @return the edited admins information
 	 */
-	public int editAdmin(String username, String firstName, String lastName, String password, char type, char status)
+	public int editAdmin(Admin admin)
 	{
-		int value =-1;
-		if(isLoggedOn())
-		{
-			value = adminH.editAdmin(username, firstName, lastName, password, type, status);
-		}
-		return value;
+		
+			return adminH.editAdmin(admin);
+	
 	}
 
 	/**
@@ -159,12 +112,7 @@ public class AdminUI {
 	 */
 	public ArrayList<Student> getStudents()
 	{
-		ArrayList<Student> stu = null;
-		if(isLoggedOn())
-		{
-			stu = adminH.getStudents();
-		}
-		return stu;
+		return adminH.getStudents();
 	}
 
 	/**
@@ -172,12 +120,8 @@ public class AdminUI {
 	 */
 	public ArrayList<Admin> getAdmins()
 	{
-		ArrayList<Admin> admin = null;
-		if(isLoggedOn())
-		{
-			admin = adminH.getAdmins();
-		}
-		return admin;
+		return adminH.getAdmins();
+		
 	}
 
 	/**
@@ -186,24 +130,16 @@ public class AdminUI {
 	 */
 	public int addUniversity(University u)
 	{
-		int value = -1;
-		if(isLoggedOn())
-		{
-			value = uniH.addUniversityToList(u);
-		}
-		return value;
+		return uniH.addUniversityToList(u);
+		
 	}
 
 	/**
 	 * Calls universityHome to get all Universities
 	 */
 	public ArrayList<University> getUniversities(){
-		ArrayList<University> univ = null;
-		if(isLoggedOn())
-		{
-			univ = uniH.getUniversities();
-		}
-		return univ;
+		return  uniH.getUniversities();
+	
 	}
 /**
  * method to edit a specified university
@@ -213,15 +149,11 @@ public class AdminUI {
 	public int editUniversities(String name, String state, String location, String control, int numberStudents, double pctFemale, double satVerbal, double satMath, 
 			double expenses, double pctFinancialAid, int numberOfApplicants, double pctAdmitted, double pctEnrolled, int AcademicScale, int socialScale, int QualityOfLifeScale)
 	{
-		int value = -1;
-		if(isLoggedOn())
-		{
-			value = uniH.editUniversities(name, state, location, control, numberStudents, pctFemale, satVerbal, satMath, 
+		
+		return uniH.editUniversities(name, state, location, control, numberStudents, pctFemale, satVerbal, satMath, 
 					 expenses, pctFinancialAid, numberOfApplicants, pctAdmitted, pctEnrolled, AcademicScale, socialScale, QualityOfLifeScale);
-		}
-		return value;
-
 	}
+
 }
 
 

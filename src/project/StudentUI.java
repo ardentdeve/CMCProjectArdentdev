@@ -17,58 +17,25 @@ import java.util.TreeMap;
 
 public class StudentUI {
 	/** Reference to studentHome object */
-	private StudentHome studentH;
+	private StudentHome studentH = new StudentHome();;
 	/** Reference to student object */
 	private Student student;
 	/** An arrayList of all students */
 	private ArrayList<Student>allStudents;
 
-	/**
-	 * Constructor.
-	 * 
-	 * @param n name to set
-	 * @param us username to set
-	 * @param p password to set
-	 */
-	public StudentUI(String n ,String us, String p){
-		student = new Student();
-		studentH = new StudentHome(n,us,p);
-		allStudents = new ArrayList<Student>();
-	}
 
-	/**
-	 * Method to check if the student is logged in.
-	 * @return boolean true if logged in
-	 */
-	public boolean isLoggedOn()
-	{
-		boolean result = false;
 
-		if(student != null)
-		{
-
-			result = true;
-		}
-		return result;
-	}
+	
 
 	/**
 	 * method to logOn as a student
 	 * @param n name of Student
 	 * @param p password of Student
 	 */
-	public boolean logOn(String n, String p)
+	public int logOn(String n, String p)
 	{
+        return studentH.login(n, p);
 
-		student = studentH.login(n, p);
-		if(student==null)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
 	}
 
 	/**
@@ -77,14 +44,12 @@ public class StudentUI {
 	 */
 	public ArrayList<University> getSavedUniversity() 
 	{   
-		ArrayList<University>uniLists = null;
-
-		if( isLoggedOn())
-		{
-			uniLists = studentH.getSavedUniversity();
-		}
-		return uniLists;
+		
+			return studentH.getSavedUniversity();
+	
 	}
+	
+
 
 
 
@@ -96,10 +61,7 @@ public class StudentUI {
 	 */
 	public void logOff()
 	{
-		if(isLoggedOn())
-		{
-			this.student = null;
-		}
+		studentH.logoff();
 	}
 
 /**
@@ -110,36 +72,15 @@ public class StudentUI {
  */
 	public void editProfile(String firstname, String lastname, String password)
 	{
-		if(isLoggedOn())
-		{
-
-			studentH.editProfile(firstname,lastname,password);
-		}
+		studentH.editProfile(firstname,lastname,password);
+		
 	}
 /**
  * Method that returns a specified students information.
  */
-	public void getStudentInfo()
+	public Student getStudentInfo()
 	{
-		if(isLoggedOn())
-		{
-			if(!(student==null))
-			{
-				boolean value=  studentH.isUserStudent(student.getUsername());
-				if(value== true)
-				{
-					System.out.println(student.toString());
-				}
-			}
-
-
-			boolean value=  studentH.isUserStudent(student.getUsername());
-			if(value== true)
-			{
-				System.out.println(student.toString());
-			}
-
-		}
+	  return studentH.getUser();
 	}
 
 /**
@@ -147,11 +88,9 @@ public class StudentUI {
  */
 	public void removeUniversity(String uni)
 	{
-		if(isLoggedOn())
-		{
-			studentH.removeUniversity(student,uni);
+		
+	    studentH.removeUniversity(uni);
 
-		}
 	}
 
 
@@ -163,13 +102,9 @@ public class StudentUI {
  */
 	public int saveUni(String u)
 	{
-		int value = -1;
-		if(isLoggedOn())
-		{
-			value = studentH.saveUniversity(student, u);
+	
+		return studentH.saveUniversity(u);
 
-		}
-		return value;
-	}
+}
 }
 

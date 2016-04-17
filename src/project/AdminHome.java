@@ -26,19 +26,8 @@ public class AdminHome {
 	/** An arrayList containing all of the students*/
 	private ArrayList<Student>allStudents;
 	/** Reference to the DBController*/
-	private DBController dbl;
+	private DBController dbl = new DBController();
 
-	/**
-	 * Contructor.
-	 * 
-	 * @param d database
-	 * @param username username to set
-	 * @param password password to set
-	 */
-	public AdminHome(String d, String username, String password) {
-		dbl = new DBController();
-		admin = null;
-	}
 
 	/**
 	 * method to login the Admin
@@ -47,26 +36,31 @@ public class AdminHome {
 	 * @param password Password of the Admin that logs in
 	 * @return the admin that is logged in
 	 */
-	public Admin login(String username, String password)
+	public int login(String username, String password)
 	{
-		boolean result = this.isUserAdmin(username);
-		if(result == true)
+		
+		int status = -3;
+		try{
+		if(this.isUserAdmin(username))
 		{
-			Admin admin = this.findAdmin(username);
+			status = -2; 
+			admin = this.findAdmin(username);
 			if(admin.getPassword().equals(password))
 			{
-				this.admin=  admin;
-				this.admin.setLoginStatus(true);
+				status = 0;
+				admin.setLoginStatus(true);
 
 			}
 
 		}
-
-
-		return this.admin;
-
-
+          return status;
 	}
+	catch(Exception e)
+	{
+		return status;
+	}
+}
+
 
 
 
@@ -78,7 +72,7 @@ public class AdminHome {
 	public void logoff()
 	{
 		admin.setLoginStatus(false);
-		admin = null;			
+		admin = null ;
 
 	}
 
@@ -92,13 +86,13 @@ public class AdminHome {
 	 * @return the admin corresponding to the username specified
 	 */
 	public Admin findAdmin(String username){
-		allAdmins = dbl.getAdmins();
 		Admin ad = null;
+		allAdmins = dbl.getAdmins();
 		for(Admin a : allAdmins)
 		{
 			if(a.getUsername().equals(username))
 			{
-				ad = a;
+				ad= a;
 			}
 		}
 		return ad;
@@ -113,6 +107,7 @@ public class AdminHome {
 	 */
 
 	public int deactivateUser(Student student){
+		
 	   return dbl.editStudent(student.getUsername() , student.getFirstName(), student.getLastName(), student.getPassword(), student.getType(), 'N');
 	}
 
@@ -139,15 +134,7 @@ public class AdminHome {
 		return dbl.addStudent(student);
 	}
 
-	/**
-	 * Edits a student that is currently in the studentHome
-	 * @param s the student to be edited
-	 * @return the edited student information
-	 */
 
-	public int editStudent(String username, String firstName, String lastName, String password, char type, char status){
-		return dbl.editStudent(username, firstName, lastName, password, type, status);
-	}
 
 	/**
 	 * Adds an admin to the AdminHome
@@ -163,9 +150,14 @@ public class AdminHome {
 	 * @param admin admin to be edited
 	 * @return the edited Admin information
 	 */
-	public int editAdmin(String username, String firstName, String lastName, String password, char type, char status)
+	public int editAdmin(Admin admin)
 	{
-		return dbl.editAdmin(username, firstName, lastName, password, type, status);
+		return dbl.editAdmin(admin.getUsername(), admin.getFirstName(), admin.getLastName(), admin.getPassword(), admin.getType(),admin.getStatus());
+	}
+	
+	public int editStudent(Student stu)
+	{
+		return dbl.editStudent(stu.getUsername(), stu.getFirstName(), stu.getLastName(), stu.getPassword(), stu.getType(),admin.getStatus());
 	}
 
 /**
